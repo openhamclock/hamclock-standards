@@ -205,3 +205,6 @@ Addr,Name,Len,Type,Description
 0xADA,NV_PSK_SHOWPATH,1,i,whether Live Spots show paths
 0xADC,NV_SAT1FLAGS,1,i,satellite 1 options
 0xADE,NV_SAT2FLAGS,1,i,satellite 2 options
+0xAE0,NV_ANTTX,2,i,TX Antenna specification - first post 4.22 addition
+0xAE3,NV_ANTRX,2,i,RX Antenna specification
+0xAE6,NV_ANTTXRX,1,i,"Antenna selection - default, TX,RX,TXRX"
