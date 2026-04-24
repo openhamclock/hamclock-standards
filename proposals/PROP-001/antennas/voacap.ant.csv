@@ -1,7 +1,9 @@
 msb,lsb,path,description
-#,Copyright(c) 2026 HamClock Contributors and David Strickland KR8X
-#,Licensed under the MIT License.
-#,See LICENSE file in the project root for full license information
+#,LICENSE_BEGIN
+#,Copyright (c) 2026 openhamclock/hamclock-standards
+#,Copyright (c) 2026 David Strickland KR8X
+#,See https://github.com/openhamclock/hamclock-standards/blob/main/LICENSE.md
+#,LICENSE_END
 0,0,default/isotrope,ISOTROPE
 1,0,default/ccir.000,ISOTROPE
 1,1,default/ccir.001,HR 4/4/1
