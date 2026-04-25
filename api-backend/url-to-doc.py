@@ -38,6 +38,11 @@ def analyze_urls(filename):
                     for v in vals:
                         data_map[path]["values"][k].add(v)
 
+        # Print License Header
+        print("# API Documentation")
+        print("This work is licensed under a [Creative Commons Attribution 4.0 International License](https://creativecommons.org/licenses/by/4.0/).")
+        print("\n---\n")
+
         # Print the Report Header
         # Column widths: Path(30), Argument(20), Units(8), Min(6), Max(6), Default(8), Required(9), Samples(rest)
         header = f"{'path':<30} | {'Argument':<20} | {'Units':<8} | {'Min':<6} | {'Max':<6} | {'Default':<8} | {'required':<9} | {'sample values'}"

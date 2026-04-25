@@ -32,6 +32,11 @@ def analyze_urls(filename):
                     for v in vals:
                         data_map[path]["values"][k].add(v)
 
+        # Print License Header
+        print("# API Documentation")
+        print("This work is licensed under a [Creative Commons Attribution 4.0 International License](https://creativecommons.org/licenses/by/4.0/).")
+        print("\n---\n")
+
         # Print Markdown Header
         print("| path | Argument | Units | Min | Max | Default | required | sample values |")
         print("| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |")
