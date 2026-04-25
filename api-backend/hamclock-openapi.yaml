@@ -6,6 +6,9 @@ info:
     Provides access to solar weather data, band conditions, map overlays, PSK/WSPR reporter data,
     SDO solar imagery, geomagnetic indices, and more.
   version: "1.0.0"
+  license:
+    name: CC BY-ND 4.0
+    url: https://creativecommons.org/licenses/by-nd/4.0/
   contact:
     name: HamClock
     url: https://www.clearskyinstitute.com/ham/HamClock/
