@@ -19,17 +19,13 @@
       --font-mono: 'Share Tech Mono', monospace;
       --font-body: 'Barlow', sans-serif;
     }
-
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     html, body {
       background: var(--bg);
       color: var(--text);
       font-family: var(--font-body);
       min-height: 100vh;
     }
-
-    /* ── Header ── */
     header {
       background: var(--surface);
       border-bottom: 1px solid var(--border);
@@ -41,7 +37,6 @@
       top: 0;
       z-index: 100;
     }
-
     .logo-icon {
       width: 36px; height: 36px;
       border: 2px solid var(--accent);
@@ -51,12 +46,10 @@
       animation: pulse 3s ease-in-out infinite;
     }
     .logo-icon svg { width: 18px; height: 18px; fill: var(--accent); }
-
     @keyframes pulse {
       0%, 100% { box-shadow: 0 0 0 0 rgba(0,212,170,.4); }
       50%       { box-shadow: 0 0 0 8px rgba(0,212,170,0); }
     }
-
     header h1 {
       font-family: var(--font-mono);
       font-size: 1.1rem;
@@ -64,7 +57,6 @@
       color: var(--accent);
     }
     header h1 span { color: var(--muted); font-size: .8rem; margin-left: 10px; letter-spacing: 0; }
-
     .header-badge {
       margin-left: auto;
       font-family: var(--font-mono);
@@ -74,31 +66,20 @@
       border: 1px solid var(--accent2);
       padding: 3px 10px;
       border-radius: 2px;
-      opacity: .9;
     }
-
-    /* ── Swagger UI overrides ── */
     #swagger-ui {
       max-width: 1100px;
       margin: 0 auto;
       padding: 24px 16px 60px;
     }
-
-    /* Hide default Swagger topbar */
     .swagger-ui .topbar { display: none !important; }
-
-    /* Info block */
-    .swagger-ui .info { margin: 0 0 24px; }
     .swagger-ui .info .title {
       font-family: var(--font-mono) !important;
       color: var(--accent) !important;
       font-size: 1.6rem !important;
     }
     .swagger-ui .info .description p,
-    .swagger-ui .info p {
-      color: var(--text) !important;
-      font-family: var(--font-body) !important;
-    }
+    .swagger-ui .info p { color: var(--text) !important; font-family: var(--font-body) !important; }
     .swagger-ui .info a { color: var(--accent) !important; }
     .swagger-ui .info .version {
       background: var(--accent) !important;
@@ -106,8 +87,6 @@
       font-family: var(--font-mono) !important;
       font-size: .7rem !important;
     }
-
-    /* Scheme/server bar */
     .swagger-ui .scheme-container {
       background: var(--surface) !important;
       border: 1px solid var(--border) !important;
@@ -125,8 +104,6 @@
       border: 1px solid var(--border) !important;
       font-family: var(--font-mono) !important;
     }
-
-    /* Tag sections */
     .swagger-ui .opblock-tag {
       font-family: var(--font-mono) !important;
       color: var(--accent) !important;
@@ -136,8 +113,6 @@
     }
     .swagger-ui .opblock-tag:hover { background: rgba(0,212,170,.04) !important; }
     .swagger-ui .opblock-tag svg { fill: var(--muted) !important; }
-
-    /* Operation blocks */
     .swagger-ui .opblock {
       background: var(--surface) !important;
       border: 1px solid var(--border) !important;
@@ -146,13 +121,11 @@
       margin-bottom: 6px !important;
     }
     .swagger-ui .opblock.is-open { border-color: var(--accent) !important; }
-
     .swagger-ui .opblock .opblock-summary {
       border: none !important;
       background: transparent !important;
     }
     .swagger-ui .opblock .opblock-summary:hover { background: rgba(255,255,255,.02) !important; }
-
     .swagger-ui .opblock-summary-method {
       font-family: var(--font-mono) !important;
       font-size: .72rem !important;
@@ -160,10 +133,8 @@
       min-width: 52px !important;
       text-align: center !important;
     }
-
-    /* GET method colour */
     .swagger-ui .opblock.opblock-get .opblock-summary-method,
-    .swagger-ui .opblock.opblock-get { 
+    .swagger-ui .opblock.opblock-get {
       background: rgba(0,212,170,.08) !important;
       border-color: rgba(0,212,170,.25) !important;
     }
@@ -171,7 +142,6 @@
       background: rgba(0,212,170,.2) !important;
       color: var(--accent) !important;
     }
-
     .swagger-ui .opblock-summary-path {
       font-family: var(--font-mono) !important;
       font-size: .8rem !important;
@@ -183,11 +153,7 @@
       font-family: var(--font-body) !important;
       font-size: .8rem !important;
     }
-
-    /* Expanded body */
-    .swagger-ui .opblock-body {
-      background: rgba(0,0,0,.25) !important;
-    }
+    .swagger-ui .opblock-body { background: rgba(0,0,0,.25) !important; }
     .swagger-ui .opblock-description-wrapper p,
     .swagger-ui .opblock-section-header h4,
     .swagger-ui table thead tr th,
@@ -199,29 +165,14 @@
     .swagger-ui .responses-inner h4,
     .swagger-ui .responses-inner h5,
     .swagger-ui label { color: var(--text) !important; }
-
-    .swagger-ui .parameter__name {
-      font-family: var(--font-mono) !important;
-      font-size: .8rem !important;
-    }
-    .swagger-ui .parameter__in {
-      font-family: var(--font-mono) !important;
-      color: var(--muted) !important;
-      font-size: .72rem !important;
-    }
-    .swagger-ui .parameter__type {
-      font-family: var(--font-mono) !important;
-      color: var(--accent2) !important;
-      font-size: .72rem !important;
-    }
-
+    .swagger-ui .parameter__name { font-family: var(--font-mono) !important; font-size: .8rem !important; }
+    .swagger-ui .parameter__in { font-family: var(--font-mono) !important; color: var(--muted) !important; font-size: .72rem !important; }
+    .swagger-ui .parameter__type { font-family: var(--font-mono) !important; color: var(--accent2) !important; font-size: .72rem !important; }
     .swagger-ui table { background: transparent !important; }
     .swagger-ui table thead tr { background: rgba(0,0,0,.2) !important; border: none !important; }
     .swagger-ui table tbody tr { background: transparent !important; border-top: 1px solid var(--border) !important; }
     .swagger-ui table tbody tr:hover { background: rgba(255,255,255,.02) !important; }
     .swagger-ui table tbody tr td { border: none !important; color: var(--text) !important; }
-
-    /* Execute button */
     .swagger-ui .btn.execute {
       background: var(--accent) !important;
       color: #000 !important;
@@ -232,7 +183,6 @@
       border-radius: 3px !important;
     }
     .swagger-ui .btn.execute:hover { background: #00ffcc !important; }
-
     .swagger-ui .btn {
       background: var(--surface) !important;
       color: var(--text) !important;
@@ -241,8 +191,6 @@
       font-size: .75rem !important;
       border-radius: 3px !important;
     }
-
-    /* Response / code blocks */
     .swagger-ui .highlight-code,
     .swagger-ui .microlight,
     .swagger-ui pre {
@@ -253,8 +201,6 @@
       font-family: var(--font-mono) !important;
       font-size: .78rem !important;
     }
-
-    /* Input fields */
     .swagger-ui input[type=text],
     .swagger-ui textarea {
       background: var(--bg) !important;
@@ -268,26 +214,17 @@
       border-color: var(--accent) !important;
       outline: none !important;
     }
-
-    /* Response codes */
     .swagger-ui .response-col_status { font-family: var(--font-mono) !important; }
     .swagger-ui .responses-table .response-col_status { color: var(--accent) !important; }
-
-    /* Scrollbar */
     ::-webkit-scrollbar { width: 6px; height: 6px; }
     ::-webkit-scrollbar-track { background: var(--bg); }
     ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
     ::-webkit-scrollbar-thumb:hover { background: var(--muted); }
-
-    /* "Authorize" lock icon area */
     .swagger-ui .auth-wrapper { display: none; }
-
-    /* Models section */
     .swagger-ui section.models { display: none; }
   </style>
 </head>
 <body>
-
 <header>
   <div class="logo-icon">
     <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -300,1205 +237,2605 @@
 
 <div id="swagger-ui"></div>
 
-<!-- Embed the YAML spec inline as a JS string so the page is fully self-contained -->
 <script>
-const SPEC_YAML = `
-openapi: "3.1.0"
-info:
-  title: HamClock API
-  description: |
-    API endpoints for HamClock — a real-time amateur radio clock and propagation display.
-    Provides solar weather data, band conditions, map overlays, PSK/WSPR reporter data,
-    SDO solar imagery, geomagnetic indices, and more.
-  version: "1.0.0"
-  contact:
-    name: HamClock
-    url: https://www.clearskyinstitute.com/ham/HamClock/
-servers:
-  - url: http://clearskyinstitute.com
-    description: Clear Sky Institute (primary)
-  - url: http://ohb.hamclock.app
-    description: OHB HamClock instance
-  - url: http://hamclock.com
-    description: HamClock.com
-tags:
-  - name: Solar Weather
-    description: Solar flux, X-ray, Bz, solar wind, sunspot, and space weather data
-  - name: Geomagnetic
-    description: K-index, DST, DRAP, and aurora data
-  - name: Propagation
-    description: VOACAP-based HF band condition and MUF prediction scripts
-  - name: Reporters
-    description: PSK Reporter, RBN, and WSPR spot data
-  - name: Maps
-    description: Day and night world map overlays at various resolutions
-  - name: SDO Images
-    description: Solar Dynamics Observatory imagery
-  - name: Satellites
-    description: Satellite TLE tracking data
-  - name: Weather
-    description: Local and world weather data
-  - name: Miscellaneous
-    description: Version, RSS, contests, DXpeditions, city data, DXCC entities
-paths:
-  /ham/HamClock/Bz/Bz.txt:
-    get:
-      tags: [Solar Weather]
-      summary: Interplanetary magnetic field Bz
-      responses:
-        "200":
-          description: Plain text Bz data
-          content:
-            text/plain:
-              schema:
-                type: string
-  /ham/HamClock/NOAASpaceWX/noaaswx.txt:
-    get:
-      tags: [Solar Weather]
-      summary: NOAA space weather conditions
-      responses:
-        "200":
-          description: NOAA space weather data
-          content:
-            text/plain:
-              schema:
-                type: string
-  /ham/HamClock/NOAASpaceWX/rank2_coeffs.txt:
-    get:
-      tags: [Solar Weather]
-      summary: NOAA space weather rank-2 coefficients
-      responses:
-        "200":
-          description: Coefficient data
-          content:
-            text/plain:
-              schema:
-                type: string
-  /ham/HamClock/xray/xray.txt:
-    get:
-      tags: [Solar Weather]
-      summary: Solar X-ray flux
-      responses:
-        "200":
-          description: X-ray flux data
-          content:
-            text/plain:
-              schema:
-                type: string
-  /ham/HamClock/solar-flux/solarflux-99.txt:
-    get:
-      tags: [Solar Weather]
-      summary: Current solar flux F10.7 index
-      responses:
-        "200":
-          description: Solar flux data
-          content:
-            text/plain:
-              schema:
-                type: string
-  /ham/HamClock/solar-flux/solarflux-history.txt:
-    get:
-      tags: [Solar Weather]
-      summary: Historical solar flux records
-      responses:
-        "200":
-          description: Historical solar flux
-          content:
-            text/plain:
-              schema:
-                type: string
-  /ham/HamClock/solar-wind/swind-24hr.txt:
-    get:
-      tags: [Solar Weather]
-      summary: 24-hour solar wind data
-      responses:
-        "200":
-          description: Solar wind data
-          content:
-            text/plain:
-              schema:
-                type: string
-  /ham/HamClock/ssn/ssn-31.txt:
-    get:
-      tags: [Solar Weather]
-      summary: Sunspot number (31-day smoothed)
-      responses:
-        "200":
-          description: Sunspot data
-          content:
-            text/plain:
-              schema:
-                type: string
-  /ham/HamClock/ssn/ssn-history.txt:
-    get:
-      tags: [Solar Weather]
-      summary: Historical sunspot number records
-      responses:
-        "200":
-          description: Historical sunspot data
-          content:
-            text/plain:
-              schema:
-                type: string
-  /ham/HamClock/geomag/kindex.txt:
-    get:
-      tags: [Geomagnetic]
-      summary: Geomagnetic K-index
-      responses:
-        "200":
-          description: K-index values
-          content:
-            text/plain:
-              schema:
-                type: string
-  /ham/HamClock/dst/dst.txt:
-    get:
-      tags: [Geomagnetic]
-      summary: Disturbance Storm Time (DST) index
-      responses:
-        "200":
-          description: DST index
-          content:
-            text/plain:
-              schema:
-                type: string
-  /ham/HamClock/drap/stats.txt:
-    get:
-      tags: [Geomagnetic]
-      summary: D-Region Absorption Prediction (DRAP) stats
-      responses:
-        "200":
-          description: DRAP statistics
-          content:
-            text/plain:
-              schema:
-                type: string
-  /ham/HamClock/aurora/aurora.txt:
-    get:
-      tags: [Geomagnetic]
-      summary: Aurora activity data
-      responses:
-        "200":
-          description: Aurora data
-          content:
-            text/plain:
-              schema:
-                type: string
-  /ham/HamClock/fetchBandConditions.pl:
-    get:
-      tags: [Propagation]
-      summary: HF band conditions (point-to-point VOACAP)
-      description: Returns VOACAP-based HF band condition predictions for a given TX/RX path.
-      parameters:
-        - name: MODE
-          in: query
-          description: "Mode code: 3=CW, 13=SSB, 17=RTTY, 19=FT8, 38=FT4"
-          schema:
-            type: integer
-            enum: [3, 13, 17, 19, 38]
-        - name: MONTH
-          in: query
-          description: Month number (0 = current)
-          schema:
-            type: integer
-            minimum: 0
-            maximum: 12
-        - name: YEAR
-          in: query
-          schema:
-            type: integer
-            example: 2026
-        - name: UTC
-          in: query
-          description: UTC hour (0-23)
-          schema:
-            type: integer
-            minimum: 0
-            maximum: 23
-        - name: TXLAT
-          in: query
-          description: Transmitter latitude (decimal degrees)
-          schema:
-            type: number
-            format: float
-            example: 56.417
-        - name: TXLNG
-          in: query
-          description: Transmitter longitude (decimal degrees)
-          schema:
-            type: number
-            format: float
-            example: -78.333
-        - name: RXLAT
-          in: query
-          description: Receiver latitude (decimal degrees)
-          schema:
-            type: number
-            format: float
-            example: -53.455
-        - name: RXLNG
-          in: query
-          description: Receiver longitude (decimal degrees)
-          schema:
-            type: number
-            format: float
-            example: -81.273
-        - name: POW
-          in: query
-          description: Transmit power (watts)
-          schema:
-            type: number
-            example: 100
-        - name: TOA
-          in: query
-          description: Take-off angle (degrees)
-          schema:
-            type: number
-            format: float
-            example: 3.0
-        - name: PATH
-          in: query
-          description: "0 = short path, 1 = long path"
-          schema:
-            type: integer
-            enum: [0, 1]
-      responses:
-        "200":
-          description: Band condition predictions
-          content:
-            text/plain:
-              schema:
-                type: string
-  /ham/HamClock/fetchVOACAP-MUF.pl:
-    get:
-      tags: [Propagation]
-      summary: VOACAP MUF map data
-      description: Maximum Usable Frequency map for a given TX location and time.
-      parameters:
-        - name: TXLAT
-          in: query
-          schema: { type: number, format: float }
-        - name: TXLNG
-          in: query
-          schema: { type: number, format: float }
-        - name: MODE
-          in: query
-          schema:
-            type: integer
-            enum: [13, 19, 38]
-        - name: MONTH
-          in: query
-          schema: { type: integer }
-        - name: YEAR
-          in: query
-          schema: { type: integer }
-        - name: UTC
-          in: query
-          schema: { type: integer, minimum: 0, maximum: 23 }
-        - name: WATTS
-          in: query
-          schema: { type: number }
-        - name: MHZ
-          in: query
-          description: Frequency in MHz
-          schema: { type: number, format: float, example: 14.1 }
-        - name: HEIGHT
-          in: query
-          schema:
-            type: integer
-            enum: [330, 660, 990, 1320, 2970]
-        - name: WIDTH
-          in: query
-          schema:
-            type: integer
-            enum: [660, 1320, 1980, 2640, 5940]
-        - name: TOA
-          in: query
-          schema: { type: number, format: float }
-        - name: PATH
-          in: query
-          schema:
-            type: integer
-            enum: [0, 1]
-      responses:
-        "200":
-          description: MUF map image (binary)
-          content:
-            application/octet-stream:
-              schema: { type: string, format: binary }
-  /ham/HamClock/fetchVOACAP-TOA.pl:
-    get:
-      tags: [Propagation]
-      summary: VOACAP Take-Off Angle (TOA) map
-      parameters:
-        - name: TXLAT
-          in: query
-          schema: { type: number, format: float }
-        - name: TXLNG
-          in: query
-          schema: { type: number, format: float }
-        - name: MODE
-          in: query
-          schema:
-            type: integer
-            enum: [13, 19, 38]
-        - name: MONTH
-          in: query
-          schema: { type: integer }
-        - name: YEAR
-          in: query
-          schema: { type: integer }
-        - name: UTC
-          in: query
-          schema: { type: integer }
-        - name: WATTS
-          in: query
-          schema: { type: number }
-        - name: MHZ
-          in: query
-          schema: { type: number, format: float, example: 21.1 }
-        - name: HEIGHT
-          in: query
-          schema:
-            type: integer
-            enum: [330, 660, 990, 1320]
-        - name: WIDTH
-          in: query
-          schema:
-            type: integer
-            enum: [660, 1320, 1980, 2640]
-        - name: TOA
-          in: query
-          schema: { type: number, format: float }
-        - name: PATH
-          in: query
-          schema:
-            type: integer
-            enum: [0, 1]
-      responses:
-        "200":
-          description: TOA map image (binary)
-          content:
-            application/octet-stream:
-              schema: { type: string, format: binary }
-  /ham/HamClock/fetchVOACAPArea.pl:
-    get:
-      tags: [Propagation]
-      summary: VOACAP area coverage map
-      parameters:
-        - name: TXLAT
-          in: query
-          schema: { type: number, format: float }
-        - name: TXLNG
-          in: query
-          schema: { type: number, format: float }
-        - name: MODE
-          in: query
-          schema:
-            type: integer
-            enum: [3, 13, 17, 19, 38]
-        - name: MONTH
-          in: query
-          schema: { type: integer }
-        - name: YEAR
-          in: query
-          schema: { type: integer }
-        - name: UTC
-          in: query
-          schema: { type: integer }
-        - name: WATTS
-          in: query
-          schema: { type: number }
-        - name: MHZ
-          in: query
-          schema: { type: number, format: float }
-        - name: HEIGHT
-          in: query
-          schema:
-            type: integer
-            enum: [330, 660, 990, 1320, 2640, 3960]
-        - name: WIDTH
-          in: query
-          schema:
-            type: integer
-            enum: [660, 1320, 1980, 2640, 3960, 7920]
-        - name: TOA
-          in: query
-          schema: { type: number, format: float }
-        - name: PATH
-          in: query
-          schema:
-            type: integer
-            enum: [0, 1]
-      responses:
-        "200":
-          description: Area coverage map (binary)
-          content:
-            application/octet-stream:
-              schema: { type: string, format: binary }
-  /ham/HamClock/fetchPSKReporter.pl:
-    get:
-      tags: [Reporters]
-      summary: PSK Reporter spot data
-      description: Returns recent PSK Reporter hearing/spotter data.
-      parameters:
-        - name: ofcall
-          in: query
-          description: Callsign being spotted
-          schema: { type: string, example: W1AW }
-        - name: bycall
-          in: query
-          description: Callsign doing the spotting
-          schema: { type: string, example: W1AW }
-        - name: ofgrid
-          in: query
-          description: Maidenhead grid of spotted station
-          schema: { type: string, example: FN54 }
-        - name: bygrid
-          in: query
-          description: Maidenhead grid of spotting station
-          schema: { type: string, example: JN45 }
-        - name: maxage
-          in: query
-          description: Maximum spot age (seconds)
-          schema:
-            type: integer
-            enum: [900, 1800, 3600, 21600, 86400]
-      responses:
-        "200":
-          description: PSK Reporter spot data
-          content:
-            text/plain:
-              schema:
-                type: string
-  /ham/HamClock/fetchRBN.pl:
-    get:
-      tags: [Reporters]
-      summary: Reverse Beacon Network (RBN) spots
-      parameters:
-        - name: ofcall
-          in: query
-          description: Callsign to fetch spots for
-          schema: { type: string, example: W1AW }
-        - name: maxage
-          in: query
-          description: Maximum spot age (seconds)
-          schema:
-            type: integer
-            enum: [1800, 3600, 86400]
-      responses:
-        "200":
-          description: RBN spot data
-          content:
-            text/plain:
-              schema:
-                type: string
-  /ham/HamClock/fetchWSPR.pl:
-    get:
-      tags: [Reporters]
-      summary: WSPR propagation spots
-      parameters:
-        - name: ofcall
-          in: query
-          schema: { type: string, example: W1AW }
-        - name: bycall
-          in: query
-          schema: { type: string, example: W1AW }
-        - name: ofgrid
-          in: query
-          schema: { type: string, example: EN50 }
-        - name: bygrid
-          in: query
-          schema: { type: string, example: EN62 }
-        - name: maxage
-          in: query
-          schema:
-            type: integer
-            enum: [900, 1800, 3600, 21600, 86400]
-      responses:
-        "200":
-          description: WSPR spot data
-          content:
-            text/plain:
-              schema:
-                type: string
-  /ham/HamClock/wx.pl:
-    get:
-      tags: [Weather]
-      summary: Local weather for a given location
-      parameters:
-        - name: lat
-          in: query
-          required: true
-          description: Latitude (decimal degrees)
-          schema: { type: number, format: float, example: 33.417 }
-        - name: lng
-          in: query
-          required: true
-          description: Longitude (decimal degrees)
-          schema: { type: number, format: float, example: -90.554 }
-        - name: is_de
-          in: query
-          description: "1 if operator home location, 0 otherwise"
-          schema:
-            type: integer
-            enum: [0, 1]
-      responses:
-        "200":
-          description: Local weather data
-          content:
-            text/plain:
-              schema:
-                type: string
-  /ham/HamClock/worldwx/wx.txt:
-    get:
-      tags: [Weather]
-      summary: World weather summary
-      responses:
-        "200":
-          description: World weather data
-          content:
-            text/plain:
-              schema:
-                type: string
-  /ham/HamClock/esats/esats.txt:
-    get:
-      tags: [Satellites]
-      summary: Satellite TLE tracking data
-      responses:
-        "200":
-          description: Two-Line Element sets
-          content:
-            text/plain:
-              schema:
-                type: string
-  /ham/HamClock/version.pl:
-    get:
-      tags: [Miscellaneous]
-      summary: HamClock server version
-      responses:
-        "200":
-          description: Version string
-          content:
-            text/plain:
-              schema:
-                type: string
-  /ham/HamClock/RSS/web15rss.pl:
-    get:
-      tags: [Miscellaneous]
-      summary: RSS news feed
-      responses:
-        "200":
-          description: RSS content
-          content:
-            text/plain:
-              schema:
-                type: string
-  /ham/HamClock/ONTA/onta.txt:
-    get:
-      tags: [Miscellaneous]
-      summary: On The Air (ONTA) activity data
-      responses:
-        "200":
-          description: ONTA data
-          content:
-            text/plain:
-              schema:
-                type: string
-  /ham/HamClock/contests/contests311.txt:
-    get:
-      tags: [Miscellaneous]
-      summary: Ham radio contest schedule
-      responses:
-        "200":
-          description: Contest list
-          content:
-            text/plain:
-              schema:
-                type: string
-  /ham/HamClock/dxpeds/dxpeditions.txt:
-    get:
-      tags: [Miscellaneous]
-      summary: DXpedition schedule
-      responses:
-        "200":
-          description: DXpedition list
-          content:
-            text/plain:
-              schema:
-                type: string
-  /ham/HamClock/cty/cty_wt_mod-ll-dxcc.txt:
-    get:
-      tags: [Miscellaneous]
-      summary: DXCC country/entity database with coordinates
-      responses:
-        "200":
-          description: DXCC entity data
-          content:
-            text/plain:
-              schema:
-                type: string
-  /ham/HamClock/cities2.txt:
-    get:
-      tags: [Miscellaneous]
-      summary: City database with lat/lng
-      responses:
-        "200":
-          description: City list
-          content:
-            text/plain:
-              schema:
-                type: string
-  /ham/HamClock/SDO/f_131_170.bmp.z:
-    get:
-      tags: [SDO Images]
-      summary: "AIA 131Å — 170px"
-      responses:
-        "200":
-          description: Compressed BMP
-          content:
-            application/octet-stream:
-              schema: { type: string, format: binary }
-  /ham/HamClock/SDO/f_131_340.bmp.z:
-    get:
-      tags: [SDO Images]
-      summary: "AIA 131Å — 340px"
-      responses:
-        "200":
-          description: Compressed BMP
-          content:
-            application/octet-stream:
-              schema: { type: string, format: binary }
-  /ham/HamClock/SDO/f_131_680.bmp.z:
-    get:
-      tags: [SDO Images]
-      summary: "AIA 131Å — 680px"
-      responses:
-        "200":
-          description: Compressed BMP
-          content:
-            application/octet-stream:
-              schema: { type: string, format: binary }
-  /ham/HamClock/SDO/f_193_170.bmp.z:
-    get:
-      tags: [SDO Images]
-      summary: "AIA 193Å — 170px"
-      responses:
-        "200":
-          description: Compressed BMP
-          content:
-            application/octet-stream:
-              schema: { type: string, format: binary }
-  /ham/HamClock/SDO/f_193_340.bmp.z:
-    get:
-      tags: [SDO Images]
-      summary: "AIA 193Å — 340px"
-      responses:
-        "200":
-          description: Compressed BMP
-          content:
-            application/octet-stream:
-              schema: { type: string, format: binary }
-  /ham/HamClock/SDO/f_193_680.bmp.z:
-    get:
-      tags: [SDO Images]
-      summary: "AIA 193Å — 680px"
-      responses:
-        "200":
-          description: Compressed BMP
-          content:
-            application/octet-stream:
-              schema: { type: string, format: binary }
-  /ham/HamClock/SDO/f_211_170.bmp.z:
-    get:
-      tags: [SDO Images]
-      summary: "AIA 211Å — 170px"
-      responses:
-        "200":
-          description: Compressed BMP
-          content:
-            application/octet-stream:
-              schema: { type: string, format: binary }
-  /ham/HamClock/SDO/f_211_340.bmp.z:
-    get:
-      tags: [SDO Images]
-      summary: "AIA 211Å — 340px"
-      responses:
-        "200":
-          description: Compressed BMP
-          content:
-            application/octet-stream:
-              schema: { type: string, format: binary }
-  /ham/HamClock/SDO/f_211_680.bmp.z:
-    get:
-      tags: [SDO Images]
-      summary: "AIA 211Å — 680px"
-      responses:
-        "200":
-          description: Compressed BMP
-          content:
-            application/octet-stream:
-              schema: { type: string, format: binary }
-  /ham/HamClock/SDO/f_304_170.bmp.z:
-    get:
-      tags: [SDO Images]
-      summary: "AIA 304Å — 170px"
-      responses:
-        "200":
-          description: Compressed BMP
-          content:
-            application/octet-stream:
-              schema: { type: string, format: binary }
-  /ham/HamClock/SDO/f_304_340.bmp.z:
-    get:
-      tags: [SDO Images]
-      summary: "AIA 304Å — 340px"
-      responses:
-        "200":
-          description: Compressed BMP
-          content:
-            application/octet-stream:
-              schema: { type: string, format: binary }
-  /ham/HamClock/SDO/f_304_680.bmp.z:
-    get:
-      tags: [SDO Images]
-      summary: "AIA 304Å — 680px"
-      responses:
-        "200":
-          description: Compressed BMP
-          content:
-            application/octet-stream:
-              schema: { type: string, format: binary }
-  /ham/HamClock/SDO/f_211_193_171_170.bmp.z:
-    get:
-      tags: [SDO Images]
-      summary: "AIA 211/193/171Å composite — 170px"
-      responses:
-        "200":
-          description: Compressed BMP
-          content:
-            application/octet-stream:
-              schema: { type: string, format: binary }
-  /ham/HamClock/SDO/f_211_193_171_340.bmp.z:
-    get:
-      tags: [SDO Images]
-      summary: "AIA 211/193/171Å composite — 340px"
-      responses:
-        "200":
-          description: Compressed BMP
-          content:
-            application/octet-stream:
-              schema: { type: string, format: binary }
-  /ham/HamClock/SDO/f_211_193_171_510.bmp.z:
-    get:
-      tags: [SDO Images]
-      summary: "AIA 211/193/171Å composite — 510px"
-      responses:
-        "200":
-          description: Compressed BMP
-          content:
-            application/octet-stream:
-              schema: { type: string, format: binary }
-  /ham/HamClock/SDO/f_211_193_171_680.bmp.z:
-    get:
-      tags: [SDO Images]
-      summary: "AIA 211/193/171Å composite — 680px"
-      responses:
-        "200":
-          description: Compressed BMP
-          content:
-            application/octet-stream:
-              schema: { type: string, format: binary }
-  /ham/HamClock/SDO/latest_170_HMIB.bmp.z:
-    get:
-      tags: [SDO Images]
-      summary: "HMI magnetogram — 170px"
-      responses:
-        "200":
-          description: Compressed BMP
-          content:
-            application/octet-stream:
-              schema: { type: string, format: binary }
-  /ham/HamClock/SDO/latest_170_HMIIC.bmp.z:
-    get:
-      tags: [SDO Images]
-      summary: "HMI intensitygram (colorized) — 170px"
-      responses:
-        "200":
-          description: Compressed BMP
-          content:
-            application/octet-stream:
-              schema: { type: string, format: binary }
-  /ham/HamClock/SDO/latest_340_HMIB.bmp.z:
-    get:
-      tags: [SDO Images]
-      summary: "HMI magnetogram — 340px"
-      responses:
-        "200":
-          description: Compressed BMP
-          content:
-            application/octet-stream:
-              schema: { type: string, format: binary }
-  /ham/HamClock/SDO/latest_340_HMIIC.bmp.z:
-    get:
-      tags: [SDO Images]
-      summary: "HMI intensitygram (colorized) — 340px"
-      responses:
-        "200":
-          description: Compressed BMP
-          content:
-            application/octet-stream:
-              schema: { type: string, format: binary }
-  /ham/HamClock/SDO/latest_510_HMIIC.bmp.z:
-    get:
-      tags: [SDO Images]
-      summary: "HMI intensitygram (colorized) — 510px"
-      responses:
-        "200":
-          description: Compressed BMP
-          content:
-            application/octet-stream:
-              schema: { type: string, format: binary }
-  /ham/HamClock/SDO/latest_680_HMIB.bmp.z:
-    get:
-      tags: [SDO Images]
-      summary: "HMI magnetogram — 680px"
-      responses:
-        "200":
-          description: Compressed BMP
-          content:
-            application/octet-stream:
-              schema: { type: string, format: binary }
-  /ham/HamClock/SDO/latest_680_HMIIC.bmp.z:
-    get:
-      tags: [SDO Images]
-      summary: "HMI intensitygram (colorized) — 680px"
-      responses:
-        "200":
-          description: Compressed BMP
-          content:
-            application/octet-stream:
-              schema: { type: string, format: binary }
-  /ham/HamClock/maps/map-D-660x330-Aurora.bmp.z:
-    get:
-      tags: [Maps]
-      summary: "Day 660×330 — Aurora"
-      responses:
-        "200":
-          description: Compressed BMP
-          content:
-            application/octet-stream:
-              schema: { type: string, format: binary }
-  /ham/HamClock/maps/map-D-660x330-Clouds.bmp.z:
-    get:
-      tags: [Maps]
-      summary: "Day 660×330 — Clouds"
-      responses:
-        "200":
-          description: Compressed BMP
-          content:
-            application/octet-stream:
-              schema: { type: string, format: binary }
-  /ham/HamClock/maps/map-D-660x330-Countries.bmp.z:
-    get:
-      tags: [Maps]
-      summary: "Day 660×330 — Countries"
-      responses:
-        "200":
-          description: Compressed BMP
-          content:
-            application/octet-stream:
-              schema: { type: string, format: binary }
-  /ham/HamClock/maps/map-D-660x330-DRAP-S.bmp.z:
-    get:
-      tags: [Maps]
-      summary: "Day 660×330 — DRAP"
-      responses:
-        "200":
-          description: Compressed BMP
-          content:
-            application/octet-stream:
-              schema: { type: string, format: binary }
-  /ham/HamClock/maps/map-D-660x330-MUF-RT.bmp.z:
-    get:
-      tags: [Maps]
-      summary: "Day 660×330 — MUF real-time"
-      responses:
-        "200":
-          description: Compressed BMP
-          content:
-            application/octet-stream:
-              schema: { type: string, format: binary }
-  /ham/HamClock/maps/map-D-660x330-Wx-in.bmp.z:
-    get:
-      tags: [Maps]
-      summary: "Day 660×330 — Weather (imperial)"
-      responses:
-        "200":
-          description: Compressed BMP
-          content:
-            application/octet-stream:
-              schema: { type: string, format: binary }
-  /ham/HamClock/maps/map-D-660x330-Wx-mB.bmp.z:
-    get:
-      tags: [Maps]
-      summary: "Day 660×330 — Weather (metric)"
-      responses:
-        "200":
-          description: Compressed BMP
-          content:
-            application/octet-stream:
-              schema: { type: string, format: binary }
-  /ham/HamClock/maps/map-D-1320x660-Aurora.bmp.z:
-    get:
-      tags: [Maps]
-      summary: "Day 1320×660 — Aurora"
-      responses:
-        "200":
-          description: Compressed BMP
-          content:
-            application/octet-stream:
-              schema: { type: string, format: binary }
-  /ham/HamClock/maps/map-D-1320x660-Clouds.bmp.z:
-    get:
-      tags: [Maps]
-      summary: "Day 1320×660 — Clouds"
-      responses:
-        "200":
-          description: Compressed BMP
-          content:
-            application/octet-stream:
-              schema: { type: string, format: binary }
-  /ham/HamClock/maps/map-D-1320x660-Countries.bmp.z:
-    get:
-      tags: [Maps]
-      summary: "Day 1320×660 — Countries"
-      responses:
-        "200":
-          description: Compressed BMP
-          content:
-            application/octet-stream:
-              schema: { type: string, format: binary }
-  /ham/HamClock/maps/map-D-1320x660-DRAP-S.bmp.z:
-    get:
-      tags: [Maps]
-      summary: "Day 1320×660 — DRAP"
-      responses:
-        "200":
-          description: Compressed BMP
-          content:
-            application/octet-stream:
-              schema: { type: string, format: binary }
-  /ham/HamClock/maps/map-D-1320x660-MUF-RT.bmp.z:
-    get:
-      tags: [Maps]
-      summary: "Day 1320×660 — MUF real-time"
-      responses:
-        "200":
-          description: Compressed BMP
-          content:
-            application/octet-stream:
-              schema: { type: string, format: binary }
-  /ham/HamClock/maps/map-D-1320x660-Terrain.bmp.z:
-    get:
-      tags: [Maps]
-      summary: "Day 1320×660 — Terrain"
-      responses:
-        "200":
-          description: Compressed BMP
-          content:
-            application/octet-stream:
-              schema: { type: string, format: binary }
-  /ham/HamClock/maps/map-D-1320x660-Wx-in.bmp.z:
-    get:
-      tags: [Maps]
-      summary: "Day 1320×660 — Weather (imperial)"
-      responses:
-        "200":
-          description: Compressed BMP
-          content:
-            application/octet-stream:
-              schema: { type: string, format: binary }
-  /ham/HamClock/maps/map-D-1320x660-Wx-mB.bmp.z:
-    get:
-      tags: [Maps]
-      summary: "Day 1320×660 — Weather (metric)"
-      responses:
-        "200":
-          description: Compressed BMP
-          content:
-            application/octet-stream:
-              schema: { type: string, format: binary }
-  /ham/HamClock/maps/map-N-660x330-Aurora.bmp.z:
-    get:
-      tags: [Maps]
-      summary: "Night 660×330 — Aurora"
-      responses:
-        "200":
-          description: Compressed BMP
-          content:
-            application/octet-stream:
-              schema: { type: string, format: binary }
-  /ham/HamClock/maps/map-N-660x330-Clouds.bmp.z:
-    get:
-      tags: [Maps]
-      summary: "Night 660×330 — Clouds"
-      responses:
-        "200":
-          description: Compressed BMP
-          content:
-            application/octet-stream:
-              schema: { type: string, format: binary }
-  /ham/HamClock/maps/map-N-660x330-Countries.bmp.z:
-    get:
-      tags: [Maps]
-      summary: "Night 660×330 — Countries"
-      responses:
-        "200":
-          description: Compressed BMP
-          content:
-            application/octet-stream:
-              schema: { type: string, format: binary }
-  /ham/HamClock/maps/map-N-660x330-DRAP-S.bmp.z:
-    get:
-      tags: [Maps]
-      summary: "Night 660×330 — DRAP"
-      responses:
-        "200":
-          description: Compressed BMP
-          content:
-            application/octet-stream:
-              schema: { type: string, format: binary }
-  /ham/HamClock/maps/map-N-660x330-MUF-RT.bmp.z:
-    get:
-      tags: [Maps]
-      summary: "Night 660×330 — MUF real-time"
-      responses:
-        "200":
-          description: Compressed BMP
-          content:
-            application/octet-stream:
-              schema: { type: string, format: binary }
-  /ham/HamClock/maps/map-N-660x330-Wx-in.bmp.z:
-    get:
-      tags: [Maps]
-      summary: "Night 660×330 — Weather (imperial)"
-      responses:
-        "200":
-          description: Compressed BMP
-          content:
-            application/octet-stream:
-              schema: { type: string, format: binary }
-  /ham/HamClock/maps/map-N-660x330-Wx-mB.bmp.z:
-    get:
-      tags: [Maps]
-      summary: "Night 660×330 — Weather (metric)"
-      responses:
-        "200":
-          description: Compressed BMP
-          content:
-            application/octet-stream:
-              schema: { type: string, format: binary }
-  /ham/HamClock/maps/map-N-1320x660-Aurora.bmp.z:
-    get:
-      tags: [Maps]
-      summary: "Night 1320×660 — Aurora"
-      responses:
-        "200":
-          description: Compressed BMP
-          content:
-            application/octet-stream:
-              schema: { type: string, format: binary }
-  /ham/HamClock/maps/map-N-1320x660-Clouds.bmp.z:
-    get:
-      tags: [Maps]
-      summary: "Night 1320×660 — Clouds"
-      responses:
-        "200":
-          description: Compressed BMP
-          content:
-            application/octet-stream:
-              schema: { type: string, format: binary }
-  /ham/HamClock/maps/map-N-1320x660-Countries.bmp.z:
-    get:
-      tags: [Maps]
-      summary: "Night 1320×660 — Countries"
-      responses:
-        "200":
-          description: Compressed BMP
-          content:
-            application/octet-stream:
-              schema: { type: string, format: binary }
-  /ham/HamClock/maps/map-N-1320x660-DRAP-S.bmp.z:
-    get:
-      tags: [Maps]
-      summary: "Night 1320×660 — DRAP"
-      responses:
-        "200":
-          description: Compressed BMP
-          content:
-            application/octet-stream:
-              schema: { type: string, format: binary }
-  /ham/HamClock/maps/map-N-1320x660-MUF-RT.bmp.z:
-    get:
-      tags: [Maps]
-      summary: "Night 1320×660 — MUF real-time"
-      responses:
-        "200":
-          description: Compressed BMP
-          content:
-            application/octet-stream:
-              schema: { type: string, format: binary }
-  /ham/HamClock/maps/map-N-1320x660-Terrain.bmp.z:
-    get:
-      tags: [Maps]
-      summary: "Night 1320×660 — Terrain"
-      responses:
-        "200":
-          description: Compressed BMP
-          content:
-            application/octet-stream:
-              schema: { type: string, format: binary }
-  /ham/HamClock/maps/map-N-1320x660-Wx-in.bmp.z:
-    get:
-      tags: [Maps]
-      summary: "Night 1320×660 — Weather (imperial)"
-      responses:
-        "200":
-          description: Compressed BMP
-          content:
-            application/octet-stream:
-              schema: { type: string, format: binary }
-  /ham/HamClock/maps/map-N-1320x660-Wx-mB.bmp.z:
-    get:
-      tags: [Maps]
-      summary: "Night 1320×660 — Weather (metric)"
-      responses:
-        "200":
-          description: Compressed BMP
-          content:
-            application/octet-stream:
-              schema: { type: string, format: binary }
-`;
+const SPEC = {
+  "openapi": "3.1.0",
+  "info": {
+    "title": "HamClock API",
+    "description": "API endpoints for HamClock \u2014 a real-time amateur radio clock and propagation display application.",
+    "version": "1.0.0",
+    "license": {
+      "name": "CC BY-ND 4.0",
+      "url": "https://creativecommons.org/licenses/by-nd/4.0/"
+    },
+    "contact": {
+      "name": "HamClock",
+      "url": "https://www.clearskyinstitute.com/ham/HamClock/"
+    }
+  },
+  "servers": [
+    {
+      "url": "http://clearskyinstitute.com",
+      "description": "Clear Sky Institute (primary)"
+    },
+    {
+      "url": "http://ohb.hamclock.app",
+      "description": "OHB HamClock instance"
+    },
+    {
+      "url": "http://hamclock.com",
+      "description": "HamClock.com"
+    }
+  ],
+  "tags": [
+    {
+      "name": "Solar Weather",
+      "description": "Solar flux, X-ray, Bz, solar wind, and space weather data"
+    },
+    {
+      "name": "Geomagnetic",
+      "description": "Geomagnetic indices including K-index and DST"
+    },
+    {
+      "name": "Propagation",
+      "description": "HF band condition and MUF prediction scripts"
+    },
+    {
+      "name": "Reporters",
+      "description": "PSK Reporter, RBN, and WSPR spot data"
+    },
+    {
+      "name": "Maps",
+      "description": "Day and night map overlays at various resolutions"
+    },
+    {
+      "name": "SDO Images",
+      "description": "Solar Dynamics Observatory solar imagery"
+    },
+    {
+      "name": "Satellites",
+      "description": "Satellite tracking data"
+    },
+    {
+      "name": "Weather",
+      "description": "World weather and local weather data"
+    },
+    {
+      "name": "Miscellaneous",
+      "description": "Contests, DXpeditions, city data, version info, and more"
+    }
+  ],
+  "paths": {
+    "/ham/HamClock/fetchBandConditions.pl": {
+      "get": {
+        "parameters": [
+          {
+            "name": "MODE",
+            "in": "query",
+            "schema": {
+              "type": "number"
+            },
+            "required": false
+          },
+          {
+            "name": "MONTH",
+            "in": "query",
+            "schema": {
+              "type": "number"
+            },
+            "required": false
+          },
+          {
+            "name": "PATH",
+            "in": "query",
+            "schema": {
+              "type": "number"
+            },
+            "required": false
+          },
+          {
+            "name": "POW",
+            "in": "query",
+            "schema": {
+              "type": "number"
+            },
+            "required": false
+          },
+          {
+            "name": "RXLAT",
+            "in": "query",
+            "schema": {
+              "type": "number"
+            },
+            "required": false
+          },
+          {
+            "name": "RXLNG",
+            "in": "query",
+            "schema": {
+              "type": "number"
+            },
+            "required": false
+          },
+          {
+            "name": "TOA",
+            "in": "query",
+            "schema": {
+              "type": "number"
+            },
+            "required": false
+          },
+          {
+            "name": "TXLAT",
+            "in": "query",
+            "schema": {
+              "type": "number"
+            },
+            "required": false
+          },
+          {
+            "name": "TXLNG",
+            "in": "query",
+            "schema": {
+              "type": "number"
+            },
+            "required": false
+          },
+          {
+            "name": "UTC",
+            "in": "query",
+            "schema": {
+              "type": "number"
+            },
+            "required": false
+          },
+          {
+            "name": "YEAR",
+            "in": "query",
+            "schema": {
+              "type": "number"
+            },
+            "required": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ham/HamClock/fetchPSKReporter.pl": {
+      "get": {
+        "parameters": [
+          {
+            "name": "bycall",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "required": false
+          },
+          {
+            "name": "bygrid",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "required": false
+          },
+          {
+            "name": "maxage",
+            "in": "query",
+            "schema": {
+              "type": "number"
+            },
+            "required": false
+          },
+          {
+            "name": "ofcall",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "required": false
+          },
+          {
+            "name": "ofgrid",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "required": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ham/HamClock/fetchRBN.pl": {
+      "get": {
+        "parameters": [
+          {
+            "name": "maxage",
+            "in": "query",
+            "schema": {
+              "type": "number"
+            },
+            "required": false
+          },
+          {
+            "name": "ofcall",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "required": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ham/HamClock/fetchVOACAP-MUF.pl": {
+      "get": {
+        "parameters": [
+          {
+            "name": "HEIGHT",
+            "in": "query",
+            "schema": {
+              "type": "number"
+            },
+            "required": false
+          },
+          {
+            "name": "MHZ",
+            "in": "query",
+            "schema": {
+              "type": "number"
+            },
+            "required": false
+          },
+          {
+            "name": "MODE",
+            "in": "query",
+            "schema": {
+              "type": "number"
+            },
+            "required": false
+          },
+          {
+            "name": "MONTH",
+            "in": "query",
+            "schema": {
+              "type": "number"
+            },
+            "required": false
+          },
+          {
+            "name": "PATH",
+            "in": "query",
+            "schema": {
+              "type": "number"
+            },
+            "required": false
+          },
+          {
+            "name": "TOA",
+            "in": "query",
+            "schema": {
+              "type": "number"
+            },
+            "required": false
+          },
+          {
+            "name": "TXLAT",
+            "in": "query",
+            "schema": {
+              "type": "number"
+            },
+            "required": false
+          },
+          {
+            "name": "TXLNG",
+            "in": "query",
+            "schema": {
+              "type": "number"
+            },
+            "required": false
+          },
+          {
+            "name": "UTC",
+            "in": "query",
+            "schema": {
+              "type": "number"
+            },
+            "required": false
+          },
+          {
+            "name": "WATTS",
+            "in": "query",
+            "schema": {
+              "type": "number"
+            },
+            "required": false
+          },
+          {
+            "name": "WIDTH",
+            "in": "query",
+            "schema": {
+              "type": "number"
+            },
+            "required": false
+          },
+          {
+            "name": "YEAR",
+            "in": "query",
+            "schema": {
+              "type": "number"
+            },
+            "required": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ham/HamClock/fetchVOACAP-TOA.pl": {
+      "get": {
+        "parameters": [
+          {
+            "name": "HEIGHT",
+            "in": "query",
+            "schema": {
+              "type": "number"
+            },
+            "required": false
+          },
+          {
+            "name": "MHZ",
+            "in": "query",
+            "schema": {
+              "type": "number"
+            },
+            "required": false
+          },
+          {
+            "name": "MODE",
+            "in": "query",
+            "schema": {
+              "type": "number"
+            },
+            "required": false
+          },
+          {
+            "name": "MONTH",
+            "in": "query",
+            "schema": {
+              "type": "number"
+            },
+            "required": false
+          },
+          {
+            "name": "PATH",
+            "in": "query",
+            "schema": {
+              "type": "number"
+            },
+            "required": false
+          },
+          {
+            "name": "TOA",
+            "in": "query",
+            "schema": {
+              "type": "number"
+            },
+            "required": false
+          },
+          {
+            "name": "TXLAT",
+            "in": "query",
+            "schema": {
+              "type": "number"
+            },
+            "required": false
+          },
+          {
+            "name": "TXLNG",
+            "in": "query",
+            "schema": {
+              "type": "number"
+            },
+            "required": false
+          },
+          {
+            "name": "UTC",
+            "in": "query",
+            "schema": {
+              "type": "number"
+            },
+            "required": false
+          },
+          {
+            "name": "WATTS",
+            "in": "query",
+            "schema": {
+              "type": "number"
+            },
+            "required": false
+          },
+          {
+            "name": "WIDTH",
+            "in": "query",
+            "schema": {
+              "type": "number"
+            },
+            "required": false
+          },
+          {
+            "name": "YEAR",
+            "in": "query",
+            "schema": {
+              "type": "number"
+            },
+            "required": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ham/HamClock/fetchVOACAPArea.pl": {
+      "get": {
+        "parameters": [
+          {
+            "name": "HEIGHT",
+            "in": "query",
+            "schema": {
+              "type": "number"
+            },
+            "required": false
+          },
+          {
+            "name": "MHZ",
+            "in": "query",
+            "schema": {
+              "type": "number"
+            },
+            "required": false
+          },
+          {
+            "name": "MODE",
+            "in": "query",
+            "schema": {
+              "type": "number"
+            },
+            "required": false
+          },
+          {
+            "name": "MONTH",
+            "in": "query",
+            "schema": {
+              "type": "number"
+            },
+            "required": false
+          },
+          {
+            "name": "PATH",
+            "in": "query",
+            "schema": {
+              "type": "number"
+            },
+            "required": false
+          },
+          {
+            "name": "TOA",
+            "in": "query",
+            "schema": {
+              "type": "number"
+            },
+            "required": false
+          },
+          {
+            "name": "TXLAT",
+            "in": "query",
+            "schema": {
+              "type": "number"
+            },
+            "required": false
+          },
+          {
+            "name": "TXLNG",
+            "in": "query",
+            "schema": {
+              "type": "number"
+            },
+            "required": false
+          },
+          {
+            "name": "UTC",
+            "in": "query",
+            "schema": {
+              "type": "number"
+            },
+            "required": false
+          },
+          {
+            "name": "WATTS",
+            "in": "query",
+            "schema": {
+              "type": "number"
+            },
+            "required": false
+          },
+          {
+            "name": "WIDTH",
+            "in": "query",
+            "schema": {
+              "type": "number"
+            },
+            "required": false
+          },
+          {
+            "name": "YEAR",
+            "in": "query",
+            "schema": {
+              "type": "number"
+            },
+            "required": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ham/HamClock/fetchWSPR.pl": {
+      "get": {
+        "parameters": [
+          {
+            "name": "bycall",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "required": false
+          },
+          {
+            "name": "bygrid",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "required": false
+          },
+          {
+            "name": "maxage",
+            "in": "query",
+            "schema": {
+              "type": "number"
+            },
+            "required": false
+          },
+          {
+            "name": "ofcall",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "required": false
+          },
+          {
+            "name": "ofgrid",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "required": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ham/HamClock/wx.pl": {
+      "get": {
+        "parameters": [
+          {
+            "name": "is_de",
+            "in": "query",
+            "schema": {
+              "type": "number"
+            },
+            "required": false
+          },
+          {
+            "name": "lat",
+            "in": "query",
+            "schema": {
+              "type": "number"
+            },
+            "required": false
+          },
+          {
+            "name": "lng",
+            "in": "query",
+            "schema": {
+              "type": "number"
+            },
+            "required": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ham/HamClock/Bz/Bz.txt": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ham/HamClock/NOAASpaceWX/noaaswx.txt": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ham/HamClock/NOAASpaceWX/rank2_coeffs.txt": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ham/HamClock/ONTA/onta.txt": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ham/HamClock/RSS/web15rss.pl": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ham/HamClock/SDO/f_131_170.bmp.z": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ham/HamClock/SDO/f_131_340.bmp.z": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ham/HamClock/SDO/f_131_680.bmp.z": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ham/HamClock/SDO/f_193_170.bmp.z": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ham/HamClock/SDO/f_193_340.bmp.z": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ham/HamClock/SDO/f_193_680.bmp.z": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ham/HamClock/SDO/f_211_170.bmp.z": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ham/HamClock/SDO/f_211_193_171_170.bmp.z": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ham/HamClock/SDO/f_211_193_171_340.bmp.z": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ham/HamClock/SDO/f_211_193_171_510.bmp.z": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ham/HamClock/SDO/f_211_193_171_680.bmp.z": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ham/HamClock/SDO/f_211_340.bmp.z": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ham/HamClock/SDO/f_211_680.bmp.z": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ham/HamClock/SDO/f_304_170.bmp.z": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ham/HamClock/SDO/f_304_340.bmp.z": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ham/HamClock/SDO/f_304_680.bmp.z": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ham/HamClock/SDO/latest_170_HMIB.bmp.z": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ham/HamClock/SDO/latest_170_HMIIC.bmp.z": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ham/HamClock/SDO/latest_340_HMIB.bmp.z": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ham/HamClock/SDO/latest_340_HMIIC.bmp.z": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ham/HamClock/SDO/latest_510_HMIIC.bmp.z": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ham/HamClock/SDO/latest_680_HMIB.bmp.z": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ham/HamClock/SDO/latest_680_HMIIC.bmp.z": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ham/HamClock/aurora/aurora.txt": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ham/HamClock/cities2.txt": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ham/HamClock/contests/contests311.txt": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ham/HamClock/cty/cty_wt_mod-ll-dxcc.txt": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ham/HamClock/drap/stats.txt": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ham/HamClock/dst/dst.txt": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ham/HamClock/dxpeds/dxpeditions.txt": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ham/HamClock/esats/esats.txt": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ham/HamClock/geomag/kindex.txt": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ham/HamClock/maps/map-D-1320x660-Aurora.bmp.z": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ham/HamClock/maps/map-D-1320x660-Clouds.bmp.z": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ham/HamClock/maps/map-D-1320x660-Countries.bmp.z": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ham/HamClock/maps/map-D-1320x660-DRAP-S.bmp.z": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ham/HamClock/maps/map-D-1320x660-MUF-RT.bmp.z": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ham/HamClock/maps/map-D-1320x660-Terrain.bmp.z": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ham/HamClock/maps/map-D-1320x660-Wx-in.bmp.z": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ham/HamClock/maps/map-D-1320x660-Wx-mB.bmp.z": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ham/HamClock/maps/map-D-1980x990-Aurora.bmp.z": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ham/HamClock/maps/map-D-1980x990-Clouds.bmp.z": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ham/HamClock/maps/map-D-1980x990-Countries.bmp.z": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ham/HamClock/maps/map-D-1980x990-DRAP-S.bmp.z": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ham/HamClock/maps/map-D-1980x990-MUF-RT.bmp.z": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ham/HamClock/maps/map-D-1980x990-Terrain.bmp.z": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ham/HamClock/maps/map-D-1980x990-Wx-in.bmp.z": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ham/HamClock/maps/map-D-1980x990-Wx-mB.bmp.z": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ham/HamClock/maps/map-D-2640x1320-Aurora.bmp.z": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ham/HamClock/maps/map-D-2640x1320-Clouds.bmp.z": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ham/HamClock/maps/map-D-2640x1320-Countries.bmp.z": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ham/HamClock/maps/map-D-2640x1320-DRAP-S.bmp.z": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ham/HamClock/maps/map-D-2640x1320-MUF-RT.bmp.z": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ham/HamClock/maps/map-D-2640x1320-Terrain.bmp.z": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ham/HamClock/maps/map-D-3960x1980-Clouds.bmp.z": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ham/HamClock/maps/map-D-3960x1980-Terrain.bmp.z": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ham/HamClock/maps/map-D-3960x1980-Wx-in.bmp.z": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ham/HamClock/maps/map-D-5940x2970-Aurora.bmp.z": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ham/HamClock/maps/map-D-5940x2970-Countries.bmp.z": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ham/HamClock/maps/map-D-5940x2970-MUF-RT.bmp.z": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ham/HamClock/maps/map-D-5940x2970-Wx-mB.bmp.z": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ham/HamClock/maps/map-D-660x330-Aurora.bmp.z": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ham/HamClock/maps/map-D-660x330-Clouds.bmp.z": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ham/HamClock/maps/map-D-660x330-Countries.bmp.z": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ham/HamClock/maps/map-D-660x330-DRAP-S.bmp.z": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ham/HamClock/maps/map-D-660x330-MUF-RT.bmp.z": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ham/HamClock/maps/map-D-660x330-Wx-in.bmp.z": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ham/HamClock/maps/map-D-660x330-Wx-mB.bmp.z": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ham/HamClock/maps/map-N-1320x660-Aurora.bmp.z": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ham/HamClock/maps/map-N-1320x660-Clouds.bmp.z": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ham/HamClock/maps/map-N-1320x660-Countries.bmp.z": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ham/HamClock/maps/map-N-1320x660-DRAP-S.bmp.z": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ham/HamClock/maps/map-N-1320x660-MUF-RT.bmp.z": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ham/HamClock/maps/map-N-1320x660-Terrain.bmp.z": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ham/HamClock/maps/map-N-1320x660-Wx-in.bmp.z": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ham/HamClock/maps/map-N-1320x660-Wx-mB.bmp.z": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ham/HamClock/maps/map-N-1980x990-Aurora.bmp.z": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ham/HamClock/maps/map-N-1980x990-Clouds.bmp.z": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ham/HamClock/maps/map-N-1980x990-Countries.bmp.z": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ham/HamClock/maps/map-N-1980x990-DRAP-S.bmp.z": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ham/HamClock/maps/map-N-1980x990-MUF-RT.bmp.z": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ham/HamClock/maps/map-N-1980x990-Terrain.bmp.z": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ham/HamClock/maps/map-N-1980x990-Wx-in.bmp.z": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ham/HamClock/maps/map-N-1980x990-Wx-mB.bmp.z": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ham/HamClock/maps/map-N-2640x1320-Aurora.bmp.z": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ham/HamClock/maps/map-N-2640x1320-Clouds.bmp.z": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ham/HamClock/maps/map-N-2640x1320-Countries.bmp.z": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ham/HamClock/maps/map-N-2640x1320-DRAP-S.bmp.z": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ham/HamClock/maps/map-N-2640x1320-MUF-RT.bmp.z": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ham/HamClock/maps/map-N-2640x1320-Terrain.bmp.z": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ham/HamClock/maps/map-N-3960x1980-Clouds.bmp.z": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ham/HamClock/maps/map-N-3960x1980-Terrain.bmp.z": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ham/HamClock/maps/map-N-3960x1980-Wx-in.bmp.z": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ham/HamClock/maps/map-N-5940x2970-Aurora.bmp.z": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ham/HamClock/maps/map-N-5940x2970-Countries.bmp.z": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ham/HamClock/maps/map-N-5940x2970-MUF-RT.bmp.z": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ham/HamClock/maps/map-N-5940x2970-Wx-mB.bmp.z": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ham/HamClock/maps/map-N-660x330-Aurora.bmp.z": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ham/HamClock/maps/map-N-660x330-Clouds.bmp.z": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ham/HamClock/maps/map-N-660x330-Countries.bmp.z": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ham/HamClock/maps/map-N-660x330-DRAP-S.bmp.z": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ham/HamClock/maps/map-N-660x330-MUF-RT.bmp.z": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ham/HamClock/maps/map-N-660x330-Wx-in.bmp.z": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ham/HamClock/maps/map-N-660x330-Wx-mB.bmp.z": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ham/HamClock/solar-flux/solarflux-99.txt": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ham/HamClock/solar-flux/solarflux-history.txt": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ham/HamClock/solar-wind/swind-24hr.txt": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ham/HamClock/ssn/ssn-31.txt": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ham/HamClock/ssn/ssn-history.txt": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ham/HamClock/version.pl": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ham/HamClock/worldwx/wx.txt": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ham/HamClock/xray/xray.txt": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+};
 </script>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/5.17.14/swagger-ui-bundle.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/5.17.14/swagger-ui-standalone-preset.min.js"></script>
 <script>
   window.onload = () => {
-    const spec = jsyaml.load(SPEC_YAML);
     SwaggerUIBundle({
-      spec,
+      spec: SPEC,
       dom_id: '#swagger-ui',
       deepLinking: true,
       presets: [SwaggerUIBundle.presets.apis, SwaggerUIStandalonePreset],
       layout: 'StandaloneLayout',
-      defaultModelsExpandDepth: -1,      // hide Models section
+      defaultModelsExpandDepth: -1,
       defaultModelExpandDepth: 1,
-      docExpansion: 'list',              // tags collapsed, paths listed
+      docExpansion: 'list',
       filter: true,
-      tryItOutEnabled: false,            // disable by default (CORS issues)
+      tryItOutEnabled: false,
     });
   };
 </script>

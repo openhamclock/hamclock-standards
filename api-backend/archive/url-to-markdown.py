@@ -4,6 +4,9 @@
 
 """
 convert a list of get-method URLs to a GitHub Markdown table
+
+DEPRECATED: This script is no longer used. API changes are made in api-doc.md,
+and url-to-doc.py generates api-doc.txt from it.
 """
 import sys
 from urllib.parse import urlparse, parse_qs
@@ -17,10 +20,10 @@ def analyze_urls(filename):
                 line = line.strip()
                 if not line:
                     continue
-                
+
                 parsed = urlparse(line)
                 path = parsed.path
-                params = parse_qs(parsed.query) 
+                params = parse_qs(parsed.query)
 
                 if path not in data_map:
                     data_map[path] = {"keys": set(), "values": {}}
@@ -50,7 +53,7 @@ def analyze_urls(filename):
                     vals = ", ".join(list(info["values"][arg])[:5])
                     if len(info["values"][arg]) > 5:
                         vals += "..."
-                    
+
                     # For a clean look, only show the path on the first argument row for that path
                     display_path = path if i == 0 else ""
                     print(f"| {display_path} | {arg} | | | | | | {vals} |")
