@@ -13,11 +13,11 @@ import sys
 
 def analyze_md(filename):
     entries = []
-    
+
     try:
         with open(filename, 'r') as f:
             lines = f.readlines()
-        
+
         # Find the table start after ---
         table_start = False
         header_skipped = False
@@ -69,7 +69,7 @@ def analyze_md(filename):
             # Print arg row if arg exists
             if entry['arg']:
                 print(f"{'':<30} | {entry['arg']:<20} | {entry['units']:<8} | {entry['min']:<6} | {entry['max']:<6} | {entry['default']:<8} | {entry['required']:<9} | {entry['samples']}")
-        
+
         if current_path:
             print("-" * len(header))
 
