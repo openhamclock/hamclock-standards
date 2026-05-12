@@ -57,8 +57,11 @@ This work is licensed under a [Creative Commons Attribution-NoDerivatives 4.0 In
 |  | maxage | | | | | | 86400, 21600, 1800, 900, 3600 |
 |  | ofcall | | | | | | W1AW |
 |  | ofgrid | | | | | | IO90, EM84, CN85, JO55, DM14... |
-| /ham/HamClock/fetchRBN.pl | maxage | | | | | | 3600, 1800, 86400 |
-|  | ofcall | | | | | | W1AW |
+| /ham/HamClock/fetchRBN.pl | maxage | secs | | | | yes | 900, 1800, 3600, 86400 |
+| | ofcall | | | | | | W1AW |
+| | bycall | | | | | | WZ7I |
+| | bygrid | | | | | | FN20, FN20kk |
+| | ofgrid | | | | | | DM37, DM37lr |
 | /ham/HamClock/fetchVOACAP-MUF.pl | HEIGHT | | | | | | 330, 660, 2970, 990, 1320 |
 |  | MHZ | | | | | | 0.00 |
 |  | MODE | | | | | | 19, 38, 13 |
