@@ -4,168 +4,14 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>api-doc</title>
+  <title>HamClock API Documentation</title>
   <style>
-    html {
-      color: #1a1a1a;
-      background-color: #fdfdfd;
-    }
-    body {
-      margin: 0 auto;
-      max-width: 36em;
-      padding-left: 50px;
-      padding-right: 50px;
-      padding-top: 50px;
-      padding-bottom: 50px;
-      hyphens: auto;
-      overflow-wrap: break-word;
-      text-rendering: optimizeLegibility;
-      font-kerning: normal;
-    }
-    @media (max-width: 600px) {
-      body {
-        font-size: 0.9em;
-        padding: 12px;
-      }
-      h1 {
-        font-size: 1.8em;
-      }
-    }
-    @media print {
-      html {
-        background-color: white;
-      }
-      body {
-        background-color: transparent;
-        color: black;
-        font-size: 12pt;
-      }
-      p, h2, h3 {
-        orphans: 3;
-        widows: 3;
-      }
-      h2, h3, h4 {
-        page-break-after: avoid;
-      }
-    }
-    p {
-      margin: 1em 0;
-    }
-    a {
-      color: #1a1a1a;
-    }
-    a:visited {
-      color: #1a1a1a;
-    }
-    img {
-      max-width: 100%;
-    }
-    svg {
-      height: auto;
-      max-width: 100%;
-    }
-    h1, h2, h3, h4, h5, h6 {
-      margin-top: 1.4em;
-    }
-    h5, h6 {
-      font-size: 1em;
-      font-style: italic;
-    }
-    h6 {
-      font-weight: normal;
-    }
-    ol, ul {
-      padding-left: 1.7em;
-      margin-top: 1em;
-    }
-    li > ol, li > ul {
-      margin-top: 0;
-    }
-    blockquote {
-      margin: 1em 0 1em 1.7em;
-      padding-left: 1em;
-      border-left: 2px solid #e6e6e6;
-      color: #606060;
-    }
-    code {
-      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
-      font-size: 85%;
-      margin: 0;
-      hyphens: manual;
-    }
-    pre {
-      margin: 1em 0;
-      overflow: auto;
-    }
-    pre code {
-      padding: 0;
-      overflow: visible;
-      overflow-wrap: normal;
-    }
-    .sourceCode {
-     background-color: transparent;
-     overflow: visible;
-    }
-    hr {
-      border: none;
-      border-top: 1px solid #1a1a1a;
-      height: 1px;
-      margin: 1em 0;
-    }
-    table {
-      margin: 1em 0;
-      border-collapse: collapse;
-      width: 100%;
-      overflow-x: auto;
-      display: block;
-      font-variant-numeric: lining-nums tabular-nums;
-    }
-    table caption {
-      margin-bottom: 0.75em;
-    }
-    tbody {
-      margin-top: 0.5em;
-      border-top: 1px solid #1a1a1a;
-      border-bottom: 1px solid #1a1a1a;
-    }
-    th {
-      border-top: 1px solid #1a1a1a;
-      padding: 0.25em 0.5em 0.25em 0.5em;
-    }
-    td {
-      padding: 0.125em 0.5em 0.25em 0.5em;
-    }
-    header {
-      margin-bottom: 4em;
-      text-align: center;
-    }
-    #TOC li {
-      list-style: none;
-    }
-    #TOC ul {
-      padding-left: 1.3em;
-    }
-    #TOC > ul {
-      padding-left: 0;
-    }
-    #TOC a:not(:hover) {
-      text-decoration: none;
-    }
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    /* The extra [class] is a hack that increases specificity enough to
-       override a similar rule in reveal.js */
-    ul.task-list[class]{list-style: none;}
-    ul.task-list li input[type="checkbox"] {
-      font-size: inherit;
-      width: 0.8em;
-      margin: 0 0.8em 0.2em -1.6em;
-      vertical-align: middle;
-    }
-    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+    ul.task-list{list-style: none;}
   </style>
   <style>
   body {
@@ -177,38 +23,196 @@
       background-color: #f2f2f2;
   }
   table {
-      width: 100%;            /* Forces the table to span the full container width */
-      display: table;        /* Keeps standard table behavior */
+      width: 100%;
+      display: table;
       border-collapse: collapse;
   }
 
   /* Handles overflow if the table is too wide for the screen */
   div.table-wrapper {
-      overflow-x: auto;      /* Adds a horizontal scrollbar if needed */
+      overflow-x: auto;
       width: 100%;
   }
+
+  /* ── Enum definitions section ── */
+  .enum-section {
+      margin: 1.5em 0 2em 0;
+      padding: 1em 1.2em;
+      background: #f8f9fa;
+      border-left: 4px solid #1a5276;
+      border-radius: 3px;
+  }
+  .enum-section h2 {
+      margin-top: 0;
+      font-size: 1.1rem;
+      color: #1a5276;
+      letter-spacing: 0.04em;
+  }
+  .enum-block { margin: 0.8em 0 0 0; }
+  .enum-block + .enum-block {
+      margin-top: 1.2em;
+      padding-top: 1em;
+      border-top: 1px solid #dde;
+  }
+  .enum-name {
+      font-family: monospace;
+      font-size: 0.95rem;
+      font-weight: bold;
+      color: #1a5276;
+  }
+  .enum-desc { font-size: 0.85rem; color: #555; margin: 0.15em 0 0.4em 0; }
+  .enum-values { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 0.3em; }
+  .enum-value {
+      display: inline-block;
+      font-family: monospace;
+      font-size: 0.82rem;
+      background: #e8f0fe;
+      border: 1px solid #b3c6e7;
+      border-radius: 3px;
+      padding: 2px 8px;
+      color: #1a3a6b;
+  }
+
+  /* ── valid values column ── */
+  th.valid-values-col {
+      text-align: center;
+      white-space: nowrap;
+  }
+  td.valid-values-col {
+      text-align: center;
+      white-space: nowrap;
+  }
+  td.valid-values-col a.enum-link {
+      font-family: monospace;
+      font-size: 0.78rem;
+      color: #1a5276;
+      background: #e8f0fe;
+      border: 1px solid #b3c6e7;
+      border-radius: 3px;
+      padding: 2px 7px;
+      text-decoration: none;
+  }
+  td.valid-values-col a.enum-link:hover {
+      background: #cddcf7;
+      border-color: #1a5276;
+  }
   </style>
+<style>
+/* ── Enum definitions section ── */
+.enum-section {
+  margin: 1.5em 0 2em 0;
+  padding: 1em 1.2em;
+  background: #f8f9fa;
+  border-left: 4px solid #1a5276;
+  border-radius: 3px;
+}
+.enum-section h2 {
+  margin-top: 0;
+  font-size: 1.1rem;
+  color: #1a5276;
+  letter-spacing: 0.04em;
+}
+.enum-block { margin: 0.8em 0 0 0; }
+.enum-block + .enum-block {
+  margin-top: 1.2em;
+  padding-top: 1em;
+  border-top: 1px solid #dde;
+}
+.enum-name {
+  font-family: monospace;
+  font-size: 0.95rem;
+  font-weight: bold;
+  color: #1a5276;
+}
+.enum-desc { font-size: 0.85rem; color: #555; margin: 0.15em 0 0.4em 0; }
+.enum-values { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 0.3em; }
+.enum-value {
+  display: inline-block;
+  font-family: monospace;
+  font-size: 0.82rem;
+  background: #e8f0fe;
+  border: 1px solid #b3c6e7;
+  border-radius: 3px;
+  padding: 2px 8px;
+  color: #1a3a6b;
+}
+/* ── valid values column ── */
+th.valid-values-col {
+  text-align: center;
+  white-space: nowrap;
+}
+td.valid-values-col {
+  text-align: center;
+  white-space: nowrap;
+}
+td.valid-values-col a.enum-link {
+  font-family: monospace;
+  font-size: 0.78rem;
+  color: #1a5276;
+  background: #e8f0fe;
+  border: 1px solid #b3c6e7;
+  border-radius: 3px;
+  padding: 2px 7px;
+  text-decoration: none;
+}
+td.valid-values-col a.enum-link:hover {
+  background: #cddcf7;
+  border-color: #1a5276;
+}
+</style>
 </head>
 <body>
-<h1 id="api-documentation">API Documentation</h1>
-<p>This work is licensed under a <a
-href="https://creativecommons.org/licenses/by-nd/4.0/">Creative Commons
-Attribution-NoDerivatives 4.0 International License</a>.</p>
-<hr />
+<header id="title-block-header">
+<h1 class="title">HamClock API Documentation</h1>
+</header>
+<div class="enum-section">
+<h2>Enum Definitions</h2>
+<div class="enum-block" id="enum-ModeEnum">
+  <div class="enum-name">ModeEnum</div>
+  <div class="enum-desc">Propagation mode: 3=WSPR 13=FT8 17=FT4 19=CW 22=RTTY 38=SSB 49=AM</div>
+  <div class="enum-values"><span class="enum-value">3</span><span class="enum-value">13</span><span class="enum-value">17</span><span class="enum-value">19</span><span class="enum-value">22</span><span class="enum-value">38</span><span class="enum-value">49  required=yes</span></div>
+</div>
+<div class="enum-block" id="enum-PathEnum">
+  <div class="enum-name">PathEnum</div>
+  <div class="enum-desc">Path: 0=short 1=long</div>
+  <div class="enum-values"><span class="enum-value">0</span><span class="enum-value">1  required=yes</span></div>
+</div>
+<div class="enum-block" id="enum-MapHeightEnum">
+  <div class="enum-name">MapHeightEnum</div>
+  <div class="enum-desc">HamClock map pixel height</div>
+  <div class="enum-values"><span class="enum-value">330</span><span class="enum-value">660</span><span class="enum-value">990</span><span class="enum-value">1320</span><span class="enum-value">1980</span><span class="enum-value">2640</span><span class="enum-value">2870</span><span class="enum-value">3960  required=yes</span></div>
+</div>
+<div class="enum-block" id="enum-MapWidthEnum">
+  <div class="enum-name">MapWidthEnum</div>
+  <div class="enum-desc">HamClock map pixel width</div>
+  <div class="enum-values"><span class="enum-value">660</span><span class="enum-value">1320</span><span class="enum-value">1980</span><span class="enum-value">2640</span><span class="enum-value">3960</span><span class="enum-value">5280</span><span class="enum-value">5940</span><span class="enum-value">7920  required=yes</span></div>
+</div>
+<div class="enum-block" id="enum-AntControlEnum">
+  <div class="enum-name">AntControlEnum</div>
+  <div class="enum-desc">0-none 1=DE 2=DX 3=both</div>
+  <div class="enum-values"><span class="enum-value">0</span><span class="enum-value">1</span><span class="enum-value">2</span><span class="enum-value">3</span></div>
+</div>
+<div class="enum-block" id="enum-AntIndexEnum">
+  <div class="enum-name">AntIndexEnum</div>
+  <div class="enum-desc">Antenna Index</div>
+  <div class="enum-values"><span class="enum-value">0</span><span class="enum-value">256</span><span class="enum-value">257</span><span class="enum-value">258</span><span class="enum-value">259</span><span class="enum-value">260</span><span class="enum-value">261</span><span class="enum-value">262</span><span class="enum-value">263</span><span class="enum-value">264</span><span class="enum-value">265</span><span class="enum-value">266</span><span class="enum-value">267</span><span class="enum-value">268</span><span class="enum-value">269</span><span class="enum-value">270</span><span class="enum-value">271</span><span class="enum-value">272</span><span class="enum-value">273</span><span class="enum-value">274</span><span class="enum-value">275</span><span class="enum-value">276</span><span class="enum-value">277</span><span class="enum-value">278</span><span class="enum-value">279</span><span class="enum-value">280</span><span class="enum-value">281</span><span class="enum-value">282</span><span class="enum-value">529</span><span class="enum-value">768</span><span class="enum-value">1024</span><span class="enum-value">1025</span><span class="enum-value">1026</span><span class="enum-value">1027</span><span class="enum-value">1028</span><span class="enum-value">1029</span><span class="enum-value">1030</span><span class="enum-value">1031</span><span class="enum-value">1032</span><span class="enum-value">1033</span><span class="enum-value">1034</span><span class="enum-value">1035</span><span class="enum-value">1036</span><span class="enum-value">1037</span><span class="enum-value">1038</span><span class="enum-value">1039</span><span class="enum-value">1045</span><span class="enum-value">1046</span><span class="enum-value">1047</span><span class="enum-value">1048</span><span class="enum-value">1049</span><span class="enum-value">1050</span><span class="enum-value">1051</span><span class="enum-value">1052</span><span class="enum-value">1053</span><span class="enum-value">1054</span><span class="enum-value">1055</span><span class="enum-value">1056</span><span class="enum-value">1058</span><span class="enum-value">1059</span><span class="enum-value">1060</span><span class="enum-value">061</span><span class="enum-value">1062</span><span class="enum-value">1063</span><span class="enum-value">1065</span><span class="enum-value">1067</span><span class="enum-value">1068</span><span class="enum-value">1069</span><span class="enum-value">1070</span><span class="enum-value">1071</span><span class="enum-value">1072</span><span class="enum-value">1114</span><span class="enum-value">1123</span><span class="enum-value">1294</span></div>
+</div>
+</div>
 <table style="width:100%;">
 <colgroup>
-<col style="width: 11%" />
-<col style="width: 11%" />
-<col style="width: 11%" />
-<col style="width: 11%" />
-<col style="width: 11%" />
-<col style="width: 11%" />
-<col style="width: 11%" />
-<col style="width: 11%" />
-<col style="width: 11%" />
+<col style="width: 10%" />
+<col style="width: 10%" />
+<col style="width: 10%" />
+<col style="width: 10%" />
+<col style="width: 10%" />
+<col style="width: 10%" />
+<col style="width: 10%" />
+<col style="width: 10%" />
+<col style="width: 10%" />
+<col style="width: 10%" />
 </colgroup>
 <thead>
-<tr>
+<tr class="header">
 <th style="text-align: left;">path</th>
 <th style="text-align: left;">Argument</th>
 <th style="text-align: center;">Units</th>
@@ -218,10 +222,11 @@ Attribution-NoDerivatives 4.0 International License</a>.</p>
 <th style="text-align: center;">required</th>
 <th style="text-align: left;">sample values</th>
 <th style="text-align: center;">proposal</th>
+<th class="valid-values-col">valid values</th>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td style="text-align: left;">/ham/HamClock/Bz/Bz.txt</td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
@@ -231,8 +236,9 @@ Attribution-NoDerivatives 4.0 International License</a>.</p>
 <td style="text-align: center;"></td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
+<tr class="even">
 <td style="text-align: left;">/ham/HamClock/NOAASpaceWX/noaaswx.txt</td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
@@ -242,10 +248,10 @@ Attribution-NoDerivatives 4.0 International License</a>.</p>
 <td style="text-align: center;"></td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
-<td
-style="text-align: left;">/ham/HamClock/NOAASpaceWX/rank2_coeffs.txt</td>
+<tr class="odd">
+<td style="text-align: left;">/ham/HamClock/NOAASpaceWX/rank2_coeffs.txt</td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
@@ -254,8 +260,9 @@ style="text-align: left;">/ham/HamClock/NOAASpaceWX/rank2_coeffs.txt</td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
+<tr class="even">
 <td style="text-align: left;">/ham/HamClock/ONTA/onta.txt</td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
@@ -265,8 +272,9 @@ style="text-align: left;">/ham/HamClock/NOAASpaceWX/rank2_coeffs.txt</td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
+<tr class="odd">
 <td style="text-align: left;">/ham/HamClock/RSS/web15rss.pl</td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
@@ -276,8 +284,9 @@ style="text-align: left;">/ham/HamClock/NOAASpaceWX/rank2_coeffs.txt</td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
+<tr class="even">
 <td style="text-align: left;">/ham/HamClock/SDO/f_131_170.bmp.z</td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
@@ -287,8 +296,9 @@ style="text-align: left;">/ham/HamClock/NOAASpaceWX/rank2_coeffs.txt</td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
+<tr class="odd">
 <td style="text-align: left;">/ham/HamClock/SDO/f_131_340.bmp.z</td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
@@ -298,8 +308,9 @@ style="text-align: left;">/ham/HamClock/NOAASpaceWX/rank2_coeffs.txt</td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
+<tr class="even">
 <td style="text-align: left;">/ham/HamClock/SDO/f_131_680.bmp.z</td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
@@ -309,8 +320,9 @@ style="text-align: left;">/ham/HamClock/NOAASpaceWX/rank2_coeffs.txt</td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
+<tr class="odd">
 <td style="text-align: left;">/ham/HamClock/SDO/f_193_170.bmp.z</td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
@@ -320,8 +332,9 @@ style="text-align: left;">/ham/HamClock/NOAASpaceWX/rank2_coeffs.txt</td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
+<tr class="even">
 <td style="text-align: left;">/ham/HamClock/SDO/f_193_340.bmp.z</td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
@@ -331,8 +344,9 @@ style="text-align: left;">/ham/HamClock/NOAASpaceWX/rank2_coeffs.txt</td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
+<tr class="odd">
 <td style="text-align: left;">/ham/HamClock/SDO/f_193_680.bmp.z</td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
@@ -342,8 +356,9 @@ style="text-align: left;">/ham/HamClock/NOAASpaceWX/rank2_coeffs.txt</td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
+<tr class="even">
 <td style="text-align: left;">/ham/HamClock/SDO/f_211_170.bmp.z</td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
@@ -353,10 +368,10 @@ style="text-align: left;">/ham/HamClock/NOAASpaceWX/rank2_coeffs.txt</td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
-<td
-style="text-align: left;">/ham/HamClock/SDO/f_211_193_171_170.bmp.z</td>
+<tr class="odd">
+<td style="text-align: left;">/ham/HamClock/SDO/f_211_193_171_170.bmp.z</td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
@@ -365,10 +380,10 @@ style="text-align: left;">/ham/HamClock/SDO/f_211_193_171_170.bmp.z</td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
-<td
-style="text-align: left;">/ham/HamClock/SDO/f_211_193_171_340.bmp.z</td>
+<tr class="even">
+<td style="text-align: left;">/ham/HamClock/SDO/f_211_193_171_340.bmp.z</td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
@@ -377,10 +392,10 @@ style="text-align: left;">/ham/HamClock/SDO/f_211_193_171_340.bmp.z</td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
-<td
-style="text-align: left;">/ham/HamClock/SDO/f_211_193_171_510.bmp.z</td>
+<tr class="odd">
+<td style="text-align: left;">/ham/HamClock/SDO/f_211_193_171_510.bmp.z</td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
@@ -389,10 +404,10 @@ style="text-align: left;">/ham/HamClock/SDO/f_211_193_171_510.bmp.z</td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
-<td
-style="text-align: left;">/ham/HamClock/SDO/f_211_193_171_680.bmp.z</td>
+<tr class="even">
+<td style="text-align: left;">/ham/HamClock/SDO/f_211_193_171_680.bmp.z</td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
@@ -401,8 +416,9 @@ style="text-align: left;">/ham/HamClock/SDO/f_211_193_171_680.bmp.z</td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
+<tr class="odd">
 <td style="text-align: left;">/ham/HamClock/SDO/f_211_340.bmp.z</td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
@@ -412,8 +428,9 @@ style="text-align: left;">/ham/HamClock/SDO/f_211_193_171_680.bmp.z</td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
+<tr class="even">
 <td style="text-align: left;">/ham/HamClock/SDO/f_211_680.bmp.z</td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
@@ -423,8 +440,9 @@ style="text-align: left;">/ham/HamClock/SDO/f_211_193_171_680.bmp.z</td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
+<tr class="odd">
 <td style="text-align: left;">/ham/HamClock/SDO/f_304_170.bmp.z</td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
@@ -434,8 +452,9 @@ style="text-align: left;">/ham/HamClock/SDO/f_211_193_171_680.bmp.z</td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
+<tr class="even">
 <td style="text-align: left;">/ham/HamClock/SDO/f_304_340.bmp.z</td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
@@ -445,8 +464,9 @@ style="text-align: left;">/ham/HamClock/SDO/f_211_193_171_680.bmp.z</td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
+<tr class="odd">
 <td style="text-align: left;">/ham/HamClock/SDO/f_304_680.bmp.z</td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
@@ -456,10 +476,10 @@ style="text-align: left;">/ham/HamClock/SDO/f_211_193_171_680.bmp.z</td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
-<td
-style="text-align: left;">/ham/HamClock/SDO/latest_170_HMIB.bmp.z</td>
+<tr class="even">
+<td style="text-align: left;">/ham/HamClock/SDO/latest_170_HMIB.bmp.z</td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
@@ -468,10 +488,10 @@ style="text-align: left;">/ham/HamClock/SDO/latest_170_HMIB.bmp.z</td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
-<td
-style="text-align: left;">/ham/HamClock/SDO/latest_170_HMIIC.bmp.z</td>
+<tr class="odd">
+<td style="text-align: left;">/ham/HamClock/SDO/latest_170_HMIIC.bmp.z</td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
@@ -480,10 +500,10 @@ style="text-align: left;">/ham/HamClock/SDO/latest_170_HMIIC.bmp.z</td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
-<td
-style="text-align: left;">/ham/HamClock/SDO/latest_340_HMIB.bmp.z</td>
+<tr class="even">
+<td style="text-align: left;">/ham/HamClock/SDO/latest_340_HMIB.bmp.z</td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
@@ -492,10 +512,10 @@ style="text-align: left;">/ham/HamClock/SDO/latest_340_HMIB.bmp.z</td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
-<td
-style="text-align: left;">/ham/HamClock/SDO/latest_340_HMIIC.bmp.z</td>
+<tr class="odd">
+<td style="text-align: left;">/ham/HamClock/SDO/latest_340_HMIIC.bmp.z</td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
@@ -504,10 +524,10 @@ style="text-align: left;">/ham/HamClock/SDO/latest_340_HMIIC.bmp.z</td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
-<td
-style="text-align: left;">/ham/HamClock/SDO/latest_510_HMIIC.bmp.z</td>
+<tr class="even">
+<td style="text-align: left;">/ham/HamClock/SDO/latest_510_HMIIC.bmp.z</td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
@@ -516,10 +536,10 @@ style="text-align: left;">/ham/HamClock/SDO/latest_510_HMIIC.bmp.z</td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
-<td
-style="text-align: left;">/ham/HamClock/SDO/latest_680_HMIB.bmp.z</td>
+<tr class="odd">
+<td style="text-align: left;">/ham/HamClock/SDO/latest_680_HMIB.bmp.z</td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
@@ -528,10 +548,10 @@ style="text-align: left;">/ham/HamClock/SDO/latest_680_HMIB.bmp.z</td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
-<td
-style="text-align: left;">/ham/HamClock/SDO/latest_680_HMIIC.bmp.z</td>
+<tr class="even">
+<td style="text-align: left;">/ham/HamClock/SDO/latest_680_HMIIC.bmp.z</td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
@@ -540,8 +560,9 @@ style="text-align: left;">/ham/HamClock/SDO/latest_680_HMIIC.bmp.z</td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
+<tr class="odd">
 <td style="text-align: left;">/ham/HamClock/aurora/aurora.txt</td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
@@ -551,8 +572,9 @@ style="text-align: left;">/ham/HamClock/SDO/latest_680_HMIIC.bmp.z</td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
+<tr class="even">
 <td style="text-align: left;">/ham/HamClock/cities2.txt</td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
@@ -562,10 +584,10 @@ style="text-align: left;">/ham/HamClock/SDO/latest_680_HMIIC.bmp.z</td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
-<td
-style="text-align: left;">/ham/HamClock/contests/contests311.txt</td>
+<tr class="odd">
+<td style="text-align: left;">/ham/HamClock/contests/contests311.txt</td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
@@ -574,10 +596,10 @@ style="text-align: left;">/ham/HamClock/contests/contests311.txt</td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
-<td
-style="text-align: left;">/ham/HamClock/cty/cty_wt_mod-ll-dxcc.txt</td>
+<tr class="even">
+<td style="text-align: left;">/ham/HamClock/cty/cty_wt_mod-ll-dxcc.txt</td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
@@ -586,8 +608,9 @@ style="text-align: left;">/ham/HamClock/cty/cty_wt_mod-ll-dxcc.txt</td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
+<tr class="odd">
 <td style="text-align: left;">/ham/HamClock/drap/stats.txt</td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
@@ -597,8 +620,9 @@ style="text-align: left;">/ham/HamClock/cty/cty_wt_mod-ll-dxcc.txt</td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
+<tr class="even">
 <td style="text-align: left;">/ham/HamClock/dst/dst.txt</td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
@@ -608,8 +632,9 @@ style="text-align: left;">/ham/HamClock/cty/cty_wt_mod-ll-dxcc.txt</td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
+<tr class="odd">
 <td style="text-align: left;">/ham/HamClock/dxpeds/dxpeditions.txt</td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
@@ -619,8 +644,9 @@ style="text-align: left;">/ham/HamClock/cty/cty_wt_mod-ll-dxcc.txt</td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
+<tr class="even">
 <td style="text-align: left;">/ham/HamClock/esats/esats.txt</td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
@@ -630,8 +656,9 @@ style="text-align: left;">/ham/HamClock/cty/cty_wt_mod-ll-dxcc.txt</td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
+<tr class="odd">
 <td style="text-align: left;">/ham/HamClock/fetchBandConditions.pl</td>
 <td style="text-align: left;">MODE</td>
 <td style="text-align: center;"></td>
@@ -641,8 +668,9 @@ style="text-align: left;">/ham/HamClock/cty/cty_wt_mod-ll-dxcc.txt</td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;">17, 13, 38, 19, 3</td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"><a class="enum-link" href="#enum-ModeEnum" title="See enum definition">ModeEnum</a></td>
 </tr>
-<tr>
+<tr class="even">
 <td style="text-align: left;"></td>
 <td style="text-align: left;">MONTH</td>
 <td style="text-align: center;"></td>
@@ -652,8 +680,9 @@ style="text-align: left;">/ham/HamClock/cty/cty_wt_mod-ll-dxcc.txt</td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;">0, 4</td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
+<tr class="odd">
 <td style="text-align: left;"></td>
 <td style="text-align: left;">PATH</td>
 <td style="text-align: center;"></td>
@@ -663,8 +692,9 @@ style="text-align: left;">/ham/HamClock/cty/cty_wt_mod-ll-dxcc.txt</td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;">0, 1</td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"><a class="enum-link" href="#enum-PathEnum" title="See enum definition">PathEnum</a></td>
 </tr>
-<tr>
+<tr class="even">
 <td style="text-align: left;"></td>
 <td style="text-align: left;">POW</td>
 <td style="text-align: center;"></td>
@@ -674,8 +704,9 @@ style="text-align: left;">/ham/HamClock/cty/cty_wt_mod-ll-dxcc.txt</td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;">10, 50, 1000, 5, 100…</td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
+<tr class="odd">
 <td style="text-align: left;"></td>
 <td style="text-align: left;">RXLAT</td>
 <td style="text-align: center;"></td>
@@ -683,11 +714,11 @@ style="text-align: left;">/ham/HamClock/cty/cty_wt_mod-ll-dxcc.txt</td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
-<td style="text-align: left;">-58.909, 6.000, 33.667, 54.917,
-33.711…</td>
+<td style="text-align: left;">-58.909, 6.000, 33.667, 54.917, 33.711…</td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
+<tr class="even">
 <td style="text-align: left;"></td>
 <td style="text-align: left;">RXLNG</td>
 <td style="text-align: center;"></td>
@@ -695,22 +726,23 @@ style="text-align: left;">/ham/HamClock/cty/cty_wt_mod-ll-dxcc.txt</td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
-<td style="text-align: left;">77.727, 98.182, -157.455, 12.583,
--83.727…</td>
+<td style="text-align: left;">77.727, 98.182, -157.455, 12.583, -83.727…</td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
+<tr class="odd">
 <td style="text-align: left;"></td>
 <td style="text-align: left;">TOA</td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
+<td style="text-align: center;">degrees</td>
+<td style="text-align: center;">0.1</td>
+<td style="text-align: center;">30.0</td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;">1.0, 3.0, 9.0</td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
+<tr class="even">
 <td style="text-align: left;"></td>
 <td style="text-align: left;">TXLAT</td>
 <td style="text-align: center;"></td>
@@ -718,11 +750,11 @@ style="text-align: left;">/ham/HamClock/cty/cty_wt_mod-ll-dxcc.txt</td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
-<td style="text-align: left;">41.246, 10.333, 25.958, 37.730,
-50.815…</td>
+<td style="text-align: left;">41.246, 10.333, 25.958, 37.730, 50.815…</td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
+<tr class="odd">
 <td style="text-align: left;"></td>
 <td style="text-align: left;">TXLNG</td>
 <td style="text-align: center;"></td>
@@ -730,11 +762,11 @@ style="text-align: left;">/ham/HamClock/cty/cty_wt_mod-ll-dxcc.txt</td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
-<td style="text-align: left;">-84.167, -1.750, -121.833, -96.333,
-12.583…</td>
+<td style="text-align: left;">-84.167, -1.750, -121.833, -96.333, 12.583…</td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
+<tr class="even">
 <td style="text-align: left;"></td>
 <td style="text-align: left;">UTC</td>
 <td style="text-align: center;"></td>
@@ -744,8 +776,9 @@ style="text-align: left;">/ham/HamClock/cty/cty_wt_mod-ll-dxcc.txt</td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;">17, 11, 7, 6, 12…</td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
+<tr class="odd">
 <td style="text-align: left;"></td>
 <td style="text-align: left;">YEAR</td>
 <td style="text-align: center;"></td>
@@ -755,8 +788,69 @@ style="text-align: left;">/ham/HamClock/cty/cty_wt_mod-ll-dxcc.txt</td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;">2026, 1970</td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">ANTDEDXCONTROL</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">no</td>
+<td style="text-align: left;">0, 3</td>
+<td style="text-align: center;">001</td>
+<td class="valid-values-col"><a class="enum-link" href="#enum-AntControlEnum" title="See enum definition">AntControlEnum</a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">ANTDEINDEX</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">no</td>
+<td style="text-align: left;">0, 1024</td>
+<td style="text-align: center;">001</td>
+<td class="valid-values-col"><a class="enum-link" href="#enum-AntIndexEnum" title="See enum definition">AntIndexEnum</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">ANTDXINDEX</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">no</td>
+<td style="text-align: left;">0</td>
+<td style="text-align: center;">001</td>
+<td class="valid-values-col"><a class="enum-link" href="#enum-AntIndexEnum" title="See enum definition">AntIndexEnum</a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">ANTDEAZ</td>
+<td style="text-align: center;">degrees</td>
+<td style="text-align: center;">0.0</td>
+<td style="text-align: center;">359.9</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">no</td>
+<td style="text-align: left;">0.0</td>
+<td style="text-align: center;">001</td>
+<td class="valid-values-col"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">ANTDXAZ</td>
+<td style="text-align: center;">degrees</td>
+<td style="text-align: center;">0.0</td>
+<td style="text-align: center;">359.9</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">no</td>
+<td style="text-align: left;">0.0</td>
+<td style="text-align: center;">001</td>
+<td class="valid-values-col"></td>
+</tr>
+<tr class="odd">
 <td style="text-align: left;">/ham/HamClock/fetchPSKReporter.pl</td>
 <td style="text-align: left;">bycall</td>
 <td style="text-align: center;"></td>
@@ -766,8 +860,9 @@ style="text-align: left;">/ham/HamClock/cty/cty_wt_mod-ll-dxcc.txt</td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;">W1AW</td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
+<tr class="even">
 <td style="text-align: left;"></td>
 <td style="text-align: left;">bygrid</td>
 <td style="text-align: center;"></td>
@@ -777,8 +872,9 @@ style="text-align: left;">/ham/HamClock/cty/cty_wt_mod-ll-dxcc.txt</td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;">FM14, EM99, EM97, DM97, CN85…</td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
+<tr class="odd">
 <td style="text-align: left;"></td>
 <td style="text-align: left;">maxage</td>
 <td style="text-align: center;"></td>
@@ -788,8 +884,9 @@ style="text-align: left;">/ham/HamClock/cty/cty_wt_mod-ll-dxcc.txt</td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;">86400, 21600, 1800, 900, 3600</td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
+<tr class="even">
 <td style="text-align: left;"></td>
 <td style="text-align: left;">ofcall</td>
 <td style="text-align: center;"></td>
@@ -799,8 +896,9 @@ style="text-align: left;">/ham/HamClock/cty/cty_wt_mod-ll-dxcc.txt</td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;">W1AW</td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
+<tr class="odd">
 <td style="text-align: left;"></td>
 <td style="text-align: left;">ofgrid</td>
 <td style="text-align: center;"></td>
@@ -810,8 +908,9 @@ style="text-align: left;">/ham/HamClock/cty/cty_wt_mod-ll-dxcc.txt</td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;">IO90, EM84, CN85, JO55, DM14…</td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
+<tr class="even">
 <td style="text-align: left;">/ham/HamClock/fetchRBN.pl</td>
 <td style="text-align: left;">maxage</td>
 <td style="text-align: center;">secs</td>
@@ -821,8 +920,9 @@ style="text-align: left;">/ham/HamClock/cty/cty_wt_mod-ll-dxcc.txt</td>
 <td style="text-align: center;">yes</td>
 <td style="text-align: left;">900, 1800, 3600, 86400</td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
+<tr class="odd">
 <td style="text-align: left;"></td>
 <td style="text-align: left;">ofcall</td>
 <td style="text-align: center;"></td>
@@ -832,8 +932,9 @@ style="text-align: left;">/ham/HamClock/cty/cty_wt_mod-ll-dxcc.txt</td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;">W1AW</td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
+<tr class="even">
 <td style="text-align: left;"></td>
 <td style="text-align: left;">bycall</td>
 <td style="text-align: center;"></td>
@@ -843,8 +944,9 @@ style="text-align: left;">/ham/HamClock/cty/cty_wt_mod-ll-dxcc.txt</td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;">WZ7I</td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
+<tr class="odd">
 <td style="text-align: left;"></td>
 <td style="text-align: left;">bygrid</td>
 <td style="text-align: center;"></td>
@@ -854,8 +956,9 @@ style="text-align: left;">/ham/HamClock/cty/cty_wt_mod-ll-dxcc.txt</td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;">FN20, FN20kk</td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
+<tr class="even">
 <td style="text-align: left;"></td>
 <td style="text-align: left;">ofgrid</td>
 <td style="text-align: center;"></td>
@@ -865,142 +968,213 @@ style="text-align: left;">/ham/HamClock/cty/cty_wt_mod-ll-dxcc.txt</td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;">DM37, DM37lr</td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
+<tr class="odd">
 <td style="text-align: left;">/ham/HamClock/fetchVOACAP-MUF.pl</td>
 <td style="text-align: left;">HEIGHT</td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
+<td style="text-align: center;">yes</td>
 <td style="text-align: left;">330, 660, 2970, 990, 1320</td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"><a class="enum-link" href="#enum-MapHeightEnum" title="See enum definition">MapHeightEnum</a></td>
 </tr>
-<tr>
+<tr class="even">
 <td style="text-align: left;"></td>
 <td style="text-align: left;">MHZ</td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
+<td style="text-align: center;">yes"</td>
 <td style="text-align: left;">0.00</td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
+<tr class="odd">
 <td style="text-align: left;"></td>
 <td style="text-align: left;">MODE</td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
+<td style="text-align: center;">yes</td>
 <td style="text-align: left;">19, 38, 13</td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"><a class="enum-link" href="#enum-ModeEnum" title="See enum definition">ModeEnum</a></td>
 </tr>
-<tr>
+<tr class="even">
 <td style="text-align: left;"></td>
 <td style="text-align: left;">MONTH</td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
+<td style="text-align: center;">yes</td>
 <td style="text-align: left;">4</td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
+<tr class="odd">
 <td style="text-align: left;"></td>
 <td style="text-align: left;">PATH</td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
+<td style="text-align: center;">yes</td>
 <td style="text-align: left;">0, 1</td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"><a class="enum-link" href="#enum-PathEnum" title="See enum definition">PathEnum</a></td>
 </tr>
-<tr>
+<tr class="even">
 <td style="text-align: left;"></td>
 <td style="text-align: left;">TOA</td>
+<td style="text-align: center;">degrees</td>
+<td style="text-align: center;">0.1</td>
+<td style="text-align: center;">30.0</td>
 <td style="text-align: center;"></td>
+<td style="text-align: center;">yes</td>
+<td style="text-align: left;">1.0, 3.0, 9.0</td>
 <td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: left;">9.0, 3.0, 1.0</td>
-<td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
+<tr class="odd">
 <td style="text-align: left;"></td>
 <td style="text-align: left;">TXLAT</td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
+<td style="text-align: center;">yes</td>
+<td style="text-align: left;">34.622, 42.875, 18.458, 37.625, 50.815…</td>
 <td style="text-align: center;"></td>
-<td style="text-align: left;">34.622, 42.875, 18.458, 37.625,
-50.815…</td>
-<td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
+<tr class="even">
 <td style="text-align: left;"></td>
 <td style="text-align: left;">TXLNG</td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
+<td style="text-align: center;">yes</td>
+<td style="text-align: left;">-124.000, 12.583, -122.091, -111.083, -84.750…</td>
 <td style="text-align: center;"></td>
-<td style="text-align: left;">-124.000, 12.583, -122.091, -111.083,
--84.750…</td>
-<td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
+<tr class="odd">
 <td style="text-align: left;"></td>
 <td style="text-align: left;">UTC</td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
+<td style="text-align: center;">yes</td>
 <td style="text-align: left;">17, 11, 7, 6, 12…</td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
+<tr class="even">
 <td style="text-align: left;"></td>
 <td style="text-align: left;">WATTS</td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
+<td style="text-align: center;">yes</td>
 <td style="text-align: left;">10, 50, 1000, 100, 500</td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
+<tr class="odd">
 <td style="text-align: left;"></td>
 <td style="text-align: left;">WIDTH</td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
+<td style="text-align: center;">yes</td>
 <td style="text-align: left;">1980, 5940, 660, 2640, 1320</td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"><a class="enum-link" href="#enum-MapWidthEnum" title="See enum definition">MapWidthEnum</a></td>
 </tr>
-<tr>
+<tr class="even">
 <td style="text-align: left;"></td>
 <td style="text-align: left;">YEAR</td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
+<td style="text-align: center;">yes</td>
 <td style="text-align: left;">2026</td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">ANTDEDXCONTROL</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">no</td>
+<td style="text-align: left;">0, 3</td>
+<td style="text-align: center;">001</td>
+<td class="valid-values-col"><a class="enum-link" href="#enum-AntControlEnum" title="See enum definition">AntControlEnum</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">ANTDEINDEX</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">no</td>
+<td style="text-align: left;">0, 1024</td>
+<td style="text-align: center;">001</td>
+<td class="valid-values-col"><a class="enum-link" href="#enum-AntIndexEnum" title="See enum definition">AntIndexEnum</a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">ANTDXINDEX</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">no</td>
+<td style="text-align: left;">0</td>
+<td style="text-align: center;">001</td>
+<td class="valid-values-col"><a class="enum-link" href="#enum-AntIndexEnum" title="See enum definition">AntIndexEnum</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">ANTDEAZ</td>
+<td style="text-align: center;">degrees</td>
+<td style="text-align: center;">0.0</td>
+<td style="text-align: center;">359.9</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">no</td>
+<td style="text-align: left;">0.0</td>
+<td style="text-align: center;">001</td>
+<td class="valid-values-col"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">ANTDXAZ</td>
+<td style="text-align: center;">degrees</td>
+<td style="text-align: center;">0.0</td>
+<td style="text-align: center;">359.9</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">no</td>
+<td style="text-align: left;">0.0</td>
+<td style="text-align: center;">001</td>
+<td class="valid-values-col"></td>
+</tr>
+<tr class="even">
 <td style="text-align: left;">/ham/HamClock/fetchVOACAP-TOA.pl</td>
 <td style="text-align: left;">HEIGHT</td>
 <td style="text-align: center;"></td>
@@ -1010,8 +1184,9 @@ style="text-align: left;">/ham/HamClock/cty/cty_wt_mod-ll-dxcc.txt</td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;">990, 330, 660, 1320</td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"><a class="enum-link" href="#enum-MapHeightEnum" title="See enum definition">MapHeightEnum</a></td>
 </tr>
-<tr>
+<tr class="odd">
 <td style="text-align: left;"></td>
 <td style="text-align: left;">MHZ</td>
 <td style="text-align: center;"></td>
@@ -1021,8 +1196,9 @@ style="text-align: left;">/ham/HamClock/cty/cty_wt_mod-ll-dxcc.txt</td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;">18.10, 21.10, 7.10, 14.10, 10.10…</td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
+<tr class="even">
 <td style="text-align: left;"></td>
 <td style="text-align: left;">MODE</td>
 <td style="text-align: center;"></td>
@@ -1032,8 +1208,9 @@ style="text-align: left;">/ham/HamClock/cty/cty_wt_mod-ll-dxcc.txt</td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;">13, 38, 19</td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"><a class="enum-link" href="#enum-ModeEnum" title="See enum definition">ModeEnum</a></td>
 </tr>
-<tr>
+<tr class="odd">
 <td style="text-align: left;"></td>
 <td style="text-align: left;">MONTH</td>
 <td style="text-align: center;"></td>
@@ -1043,8 +1220,9 @@ style="text-align: left;">/ham/HamClock/cty/cty_wt_mod-ll-dxcc.txt</td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;">4</td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
+<tr class="even">
 <td style="text-align: left;"></td>
 <td style="text-align: left;">PATH</td>
 <td style="text-align: center;"></td>
@@ -1054,19 +1232,21 @@ style="text-align: left;">/ham/HamClock/cty/cty_wt_mod-ll-dxcc.txt</td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;">0</td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"><a class="enum-link" href="#enum-PathEnum" title="See enum definition">PathEnum</a></td>
 </tr>
-<tr>
+<tr class="odd">
 <td style="text-align: left;"></td>
 <td style="text-align: left;">TOA</td>
+<td style="text-align: center;">degrees</td>
+<td style="text-align: center;">0.1</td>
+<td style="text-align: center;">30.0</td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
+<td style="text-align: left;">1.0, 3.0, 9.0</td>
 <td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: left;">9.0, 3.0</td>
-<td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
+<tr class="even">
 <td style="text-align: left;"></td>
 <td style="text-align: left;">TXLAT</td>
 <td style="text-align: center;"></td>
@@ -1074,11 +1254,11 @@ style="text-align: left;">/ham/HamClock/cty/cty_wt_mod-ll-dxcc.txt</td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
-<td style="text-align: left;">38.958, 34.622, 41.106, 40.000,
-39.875…</td>
+<td style="text-align: left;">38.958, 34.622, 41.106, 40.000, 39.875…</td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
+<tr class="odd">
 <td style="text-align: left;"></td>
 <td style="text-align: left;">TXLNG</td>
 <td style="text-align: center;"></td>
@@ -1086,11 +1266,11 @@ style="text-align: left;">/ham/HamClock/cty/cty_wt_mod-ll-dxcc.txt</td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
-<td style="text-align: left;">-124.000, -82.000, -84.750, -86.083,
--119.167…</td>
+<td style="text-align: left;">-124.000, -82.000, -84.750, -86.083, -119.167…</td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
+<tr class="even">
 <td style="text-align: left;"></td>
 <td style="text-align: left;">UTC</td>
 <td style="text-align: center;"></td>
@@ -1100,8 +1280,9 @@ style="text-align: left;">/ham/HamClock/cty/cty_wt_mod-ll-dxcc.txt</td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;">17, 11, 7, 6, 12…</td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
+<tr class="odd">
 <td style="text-align: left;"></td>
 <td style="text-align: left;">WATTS</td>
 <td style="text-align: center;"></td>
@@ -1111,8 +1292,9 @@ style="text-align: left;">/ham/HamClock/cty/cty_wt_mod-ll-dxcc.txt</td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;">10, 50, 1000, 100, 500</td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
+<tr class="even">
 <td style="text-align: left;"></td>
 <td style="text-align: left;">WIDTH</td>
 <td style="text-align: center;"></td>
@@ -1122,8 +1304,9 @@ style="text-align: left;">/ham/HamClock/cty/cty_wt_mod-ll-dxcc.txt</td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;">660, 1980, 2640, 1320</td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"><a class="enum-link" href="#enum-MapWidthEnum" title="See enum definition">MapWidthEnum</a></td>
 </tr>
-<tr>
+<tr class="odd">
 <td style="text-align: left;"></td>
 <td style="text-align: left;">YEAR</td>
 <td style="text-align: center;"></td>
@@ -1133,8 +1316,69 @@ style="text-align: left;">/ham/HamClock/cty/cty_wt_mod-ll-dxcc.txt</td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;">2026</td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">ANTDEDXCONTROL</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">no</td>
+<td style="text-align: left;">0, 3</td>
+<td style="text-align: center;">001</td>
+<td class="valid-values-col"><a class="enum-link" href="#enum-AntControlEnum" title="See enum definition">AntControlEnum</a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">ANTDEINDEX</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">no</td>
+<td style="text-align: left;">0, 1024</td>
+<td style="text-align: center;">001</td>
+<td class="valid-values-col"><a class="enum-link" href="#enum-AntIndexEnum" title="See enum definition">AntIndexEnum</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">ANTDXINDEX</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">no</td>
+<td style="text-align: left;">0</td>
+<td style="text-align: center;">001</td>
+<td class="valid-values-col"><a class="enum-link" href="#enum-AntIndexEnum" title="See enum definition">AntIndexEnum</a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">ANTDEAZ</td>
+<td style="text-align: center;">degrees</td>
+<td style="text-align: center;">0.0</td>
+<td style="text-align: center;">359.9</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">no</td>
+<td style="text-align: left;">0.0</td>
+<td style="text-align: center;">001</td>
+<td class="valid-values-col"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">ANTDXAZ</td>
+<td style="text-align: center;">degrees</td>
+<td style="text-align: center;">0.0</td>
+<td style="text-align: center;">359.9</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">no</td>
+<td style="text-align: left;">0.0</td>
+<td style="text-align: center;">001</td>
+<td class="valid-values-col"></td>
+</tr>
+<tr class="odd">
 <td style="text-align: left;">/ham/HamClock/fetchVOACAPArea.pl</td>
 <td style="text-align: left;">HEIGHT</td>
 <td style="text-align: center;"></td>
@@ -1144,8 +1388,9 @@ style="text-align: left;">/ham/HamClock/cty/cty_wt_mod-ll-dxcc.txt</td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;">1980, 330, 660, 2640, 990…</td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"><a class="enum-link" href="#enum-MapHeightEnum" title="See enum definition">MapHeightEnum</a></td>
 </tr>
-<tr>
+<tr class="even">
 <td style="text-align: left;"></td>
 <td style="text-align: left;">MHZ</td>
 <td style="text-align: center;"></td>
@@ -1155,8 +1400,9 @@ style="text-align: left;">/ham/HamClock/cty/cty_wt_mod-ll-dxcc.txt</td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;">18.10, 21.10, 7.10, 14.10, 10.10…</td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
+<tr class="odd">
 <td style="text-align: left;"></td>
 <td style="text-align: left;">MODE</td>
 <td style="text-align: center;"></td>
@@ -1166,8 +1412,9 @@ style="text-align: left;">/ham/HamClock/cty/cty_wt_mod-ll-dxcc.txt</td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;">17, 13, 38, 19, 3</td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"><a class="enum-link" href="#enum-ModeEnum" title="See enum definition">ModeEnum</a></td>
 </tr>
-<tr>
+<tr class="even">
 <td style="text-align: left;"></td>
 <td style="text-align: left;">MONTH</td>
 <td style="text-align: center;"></td>
@@ -1177,8 +1424,9 @@ style="text-align: left;">/ham/HamClock/cty/cty_wt_mod-ll-dxcc.txt</td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;">4</td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
+<tr class="odd">
 <td style="text-align: left;"></td>
 <td style="text-align: left;">PATH</td>
 <td style="text-align: center;"></td>
@@ -1188,19 +1436,21 @@ style="text-align: left;">/ham/HamClock/cty/cty_wt_mod-ll-dxcc.txt</td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;">0, 1</td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"><a class="enum-link" href="#enum-PathEnum" title="See enum definition">PathEnum</a></td>
 </tr>
-<tr>
+<tr class="even">
 <td style="text-align: left;"></td>
 <td style="text-align: left;">TOA</td>
+<td style="text-align: center;">degrees</td>
+<td style="text-align: center;">0.1</td>
+<td style="text-align: center;">30.0</td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
+<td style="text-align: left;">1.0, 3.0, 9.0</td>
 <td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: left;">9.0, 3.0, 1.0</td>
-<td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
+<tr class="odd">
 <td style="text-align: left;"></td>
 <td style="text-align: left;">TXLAT</td>
 <td style="text-align: center;"></td>
@@ -1208,11 +1458,11 @@ style="text-align: left;">/ham/HamClock/cty/cty_wt_mod-ll-dxcc.txt</td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
-<td style="text-align: left;">39.381, 45.818, 18.458, 42.292,
-40.712…</td>
+<td style="text-align: left;">39.381, 45.818, 18.458, 42.292, 40.712…</td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
+<tr class="even">
 <td style="text-align: left;"></td>
 <td style="text-align: left;">TXLNG</td>
 <td style="text-align: center;"></td>
@@ -1220,11 +1470,11 @@ style="text-align: left;">/ham/HamClock/cty/cty_wt_mod-ll-dxcc.txt</td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
-<td style="text-align: left;">-124.000, -1.750, -84.098, -122.000,
--123.417…</td>
+<td style="text-align: left;">-124.000, -1.750, -84.098, -122.000, -123.417…</td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
+<tr class="odd">
 <td style="text-align: left;"></td>
 <td style="text-align: left;">UTC</td>
 <td style="text-align: center;"></td>
@@ -1234,8 +1484,9 @@ style="text-align: left;">/ham/HamClock/cty/cty_wt_mod-ll-dxcc.txt</td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;">17, 11, 7, 6, 12…</td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
+<tr class="even">
 <td style="text-align: left;"></td>
 <td style="text-align: left;">WATTS</td>
 <td style="text-align: center;"></td>
@@ -1245,8 +1496,9 @@ style="text-align: left;">/ham/HamClock/cty/cty_wt_mod-ll-dxcc.txt</td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;">10, 50, 1000, 5, 100…</td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
+<tr class="odd">
 <td style="text-align: left;"></td>
 <td style="text-align: left;">WIDTH</td>
 <td style="text-align: center;"></td>
@@ -1256,8 +1508,9 @@ style="text-align: left;">/ham/HamClock/cty/cty_wt_mod-ll-dxcc.txt</td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;">1980, 660, 7920, 2640, 5280…</td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"><a class="enum-link" href="#enum-MapWidthEnum" title="See enum definition">MapWidthEnum</a></td>
 </tr>
-<tr>
+<tr class="even">
 <td style="text-align: left;"></td>
 <td style="text-align: left;">YEAR</td>
 <td style="text-align: center;"></td>
@@ -1267,8 +1520,69 @@ style="text-align: left;">/ham/HamClock/cty/cty_wt_mod-ll-dxcc.txt</td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;">2026</td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">ANTDEDXCONTROL</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">no</td>
+<td style="text-align: left;">0, 3</td>
+<td style="text-align: center;">001</td>
+<td class="valid-values-col"><a class="enum-link" href="#enum-AntControlEnum" title="See enum definition">AntControlEnum</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">ANTDEINDEX</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">no</td>
+<td style="text-align: left;">0, 1024</td>
+<td style="text-align: center;">001</td>
+<td class="valid-values-col"><a class="enum-link" href="#enum-AntIndexEnum" title="See enum definition">AntIndexEnum</a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">ANTDXINDEX</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">no</td>
+<td style="text-align: left;">0</td>
+<td style="text-align: center;">001</td>
+<td class="valid-values-col"><a class="enum-link" href="#enum-AntIndexEnum" title="See enum definition">AntIndexEnum</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">ANTDEAZ</td>
+<td style="text-align: center;">degrees</td>
+<td style="text-align: center;">0.0</td>
+<td style="text-align: center;">359.9</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">no</td>
+<td style="text-align: left;">0.0</td>
+<td style="text-align: center;">001</td>
+<td class="valid-values-col"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">ANTDXAZ</td>
+<td style="text-align: center;">degrees</td>
+<td style="text-align: center;">0.0</td>
+<td style="text-align: center;">359.9</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">no</td>
+<td style="text-align: left;">0.0</td>
+<td style="text-align: center;">001</td>
+<td class="valid-values-col"></td>
+</tr>
+<tr class="even">
 <td style="text-align: left;">/ham/HamClock/fetchWSPR.pl</td>
 <td style="text-align: left;">bycall</td>
 <td style="text-align: center;"></td>
@@ -1278,8 +1592,9 @@ style="text-align: left;">/ham/HamClock/cty/cty_wt_mod-ll-dxcc.txt</td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;">W1AW</td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
+<tr class="odd">
 <td style="text-align: left;"></td>
 <td style="text-align: left;">bygrid</td>
 <td style="text-align: center;"></td>
@@ -1289,8 +1604,9 @@ style="text-align: left;">/ham/HamClock/cty/cty_wt_mod-ll-dxcc.txt</td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;">EN82, EN62</td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
+<tr class="even">
 <td style="text-align: left;"></td>
 <td style="text-align: left;">maxage</td>
 <td style="text-align: center;"></td>
@@ -1300,8 +1616,9 @@ style="text-align: left;">/ham/HamClock/cty/cty_wt_mod-ll-dxcc.txt</td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;">86400, 21600, 1800, 900, 3600</td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
+<tr class="odd">
 <td style="text-align: left;"></td>
 <td style="text-align: left;">ofcall</td>
 <td style="text-align: center;"></td>
@@ -1311,8 +1628,9 @@ style="text-align: left;">/ham/HamClock/cty/cty_wt_mod-ll-dxcc.txt</td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;">W1AW</td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
+<tr class="even">
 <td style="text-align: left;"></td>
 <td style="text-align: left;">ofgrid</td>
 <td style="text-align: center;"></td>
@@ -1322,8 +1640,9 @@ style="text-align: left;">/ham/HamClock/cty/cty_wt_mod-ll-dxcc.txt</td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;">EN50, DM03, EM59, IO90, PF94</td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
+<tr class="odd">
 <td style="text-align: left;">/ham/HamClock/geomag/kindex.txt</td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
@@ -1333,10 +1652,10 @@ style="text-align: left;">/ham/HamClock/cty/cty_wt_mod-ll-dxcc.txt</td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
-<td
-style="text-align: left;">/ham/HamClock/maps/map-D-1320x660-Aurora.bmp.z</td>
+<tr class="even">
+<td style="text-align: left;">/ham/HamClock/maps/map-D-1320x660-Aurora.bmp.z</td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
@@ -1345,10 +1664,10 @@ style="text-align: left;">/ham/HamClock/maps/map-D-1320x660-Aurora.bmp.z</td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
-<td
-style="text-align: left;">/ham/HamClock/maps/map-D-1320x660-Clouds.bmp.z</td>
+<tr class="odd">
+<td style="text-align: left;">/ham/HamClock/maps/map-D-1320x660-Clouds.bmp.z</td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
@@ -1357,10 +1676,10 @@ style="text-align: left;">/ham/HamClock/maps/map-D-1320x660-Clouds.bmp.z</td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
-<td
-style="text-align: left;">/ham/HamClock/maps/map-D-1320x660-Countries.bmp.z</td>
+<tr class="even">
+<td style="text-align: left;">/ham/HamClock/maps/map-D-1320x660-Countries.bmp.z</td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
@@ -1369,10 +1688,10 @@ style="text-align: left;">/ham/HamClock/maps/map-D-1320x660-Countries.bmp.z</td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
-<td
-style="text-align: left;">/ham/HamClock/maps/map-D-1320x660-DRAP-S.bmp.z</td>
+<tr class="odd">
+<td style="text-align: left;">/ham/HamClock/maps/map-D-1320x660-DRAP-S.bmp.z</td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
@@ -1381,10 +1700,10 @@ style="text-align: left;">/ham/HamClock/maps/map-D-1320x660-DRAP-S.bmp.z</td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
-<td
-style="text-align: left;">/ham/HamClock/maps/map-D-1320x660-MUF-RT.bmp.z</td>
+<tr class="even">
+<td style="text-align: left;">/ham/HamClock/maps/map-D-1320x660-MUF-RT.bmp.z</td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
@@ -1393,10 +1712,10 @@ style="text-align: left;">/ham/HamClock/maps/map-D-1320x660-MUF-RT.bmp.z</td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
-<td
-style="text-align: left;">/ham/HamClock/maps/map-D-1320x660-Terrain.bmp.z</td>
+<tr class="odd">
+<td style="text-align: left;">/ham/HamClock/maps/map-D-1320x660-Terrain.bmp.z</td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
@@ -1405,10 +1724,10 @@ style="text-align: left;">/ham/HamClock/maps/map-D-1320x660-Terrain.bmp.z</td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
-<td
-style="text-align: left;">/ham/HamClock/maps/map-D-1320x660-Wx-in.bmp.z</td>
+<tr class="even">
+<td style="text-align: left;">/ham/HamClock/maps/map-D-1320x660-Wx-in.bmp.z</td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
@@ -1417,10 +1736,10 @@ style="text-align: left;">/ham/HamClock/maps/map-D-1320x660-Wx-in.bmp.z</td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
-<td
-style="text-align: left;">/ham/HamClock/maps/map-D-1320x660-Wx-mB.bmp.z</td>
+<tr class="odd">
+<td style="text-align: left;">/ham/HamClock/maps/map-D-1320x660-Wx-mB.bmp.z</td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
@@ -1429,10 +1748,10 @@ style="text-align: left;">/ham/HamClock/maps/map-D-1320x660-Wx-mB.bmp.z</td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
-<td
-style="text-align: left;">/ham/HamClock/maps/map-D-1980x990-Aurora.bmp.z</td>
+<tr class="even">
+<td style="text-align: left;">/ham/HamClock/maps/map-D-1980x990-Aurora.bmp.z</td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
@@ -1441,10 +1760,10 @@ style="text-align: left;">/ham/HamClock/maps/map-D-1980x990-Aurora.bmp.z</td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
-<td
-style="text-align: left;">/ham/HamClock/maps/map-D-1980x990-Clouds.bmp.z</td>
+<tr class="odd">
+<td style="text-align: left;">/ham/HamClock/maps/map-D-1980x990-Clouds.bmp.z</td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
@@ -1453,10 +1772,10 @@ style="text-align: left;">/ham/HamClock/maps/map-D-1980x990-Clouds.bmp.z</td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
-<td
-style="text-align: left;">/ham/HamClock/maps/map-D-1980x990-Countries.bmp.z</td>
+<tr class="even">
+<td style="text-align: left;">/ham/HamClock/maps/map-D-1980x990-Countries.bmp.z</td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
@@ -1465,10 +1784,10 @@ style="text-align: left;">/ham/HamClock/maps/map-D-1980x990-Countries.bmp.z</td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
-<td
-style="text-align: left;">/ham/HamClock/maps/map-D-1980x990-DRAP-S.bmp.z</td>
+<tr class="odd">
+<td style="text-align: left;">/ham/HamClock/maps/map-D-1980x990-DRAP-S.bmp.z</td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
@@ -1477,10 +1796,10 @@ style="text-align: left;">/ham/HamClock/maps/map-D-1980x990-DRAP-S.bmp.z</td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
-<td
-style="text-align: left;">/ham/HamClock/maps/map-D-1980x990-MUF-RT.bmp.z</td>
+<tr class="even">
+<td style="text-align: left;">/ham/HamClock/maps/map-D-1980x990-MUF-RT.bmp.z</td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
@@ -1489,10 +1808,10 @@ style="text-align: left;">/ham/HamClock/maps/map-D-1980x990-MUF-RT.bmp.z</td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
-<td
-style="text-align: left;">/ham/HamClock/maps/map-D-1980x990-Terrain.bmp.z</td>
+<tr class="odd">
+<td style="text-align: left;">/ham/HamClock/maps/map-D-1980x990-Terrain.bmp.z</td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
@@ -1501,10 +1820,10 @@ style="text-align: left;">/ham/HamClock/maps/map-D-1980x990-Terrain.bmp.z</td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
-<td
-style="text-align: left;">/ham/HamClock/maps/map-D-1980x990-Wx-in.bmp.z</td>
+<tr class="even">
+<td style="text-align: left;">/ham/HamClock/maps/map-D-1980x990-Wx-in.bmp.z</td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
@@ -1513,10 +1832,10 @@ style="text-align: left;">/ham/HamClock/maps/map-D-1980x990-Wx-in.bmp.z</td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
-<td
-style="text-align: left;">/ham/HamClock/maps/map-D-1980x990-Wx-mB.bmp.z</td>
+<tr class="odd">
+<td style="text-align: left;">/ham/HamClock/maps/map-D-1980x990-Wx-mB.bmp.z</td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
@@ -1525,10 +1844,10 @@ style="text-align: left;">/ham/HamClock/maps/map-D-1980x990-Wx-mB.bmp.z</td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
-<td
-style="text-align: left;">/ham/HamClock/maps/map-D-2640x1320-Aurora.bmp.z</td>
+<tr class="even">
+<td style="text-align: left;">/ham/HamClock/maps/map-D-2640x1320-Aurora.bmp.z</td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
@@ -1537,10 +1856,10 @@ style="text-align: left;">/ham/HamClock/maps/map-D-2640x1320-Aurora.bmp.z</td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
-<td
-style="text-align: left;">/ham/HamClock/maps/map-D-2640x1320-Clouds.bmp.z</td>
+<tr class="odd">
+<td style="text-align: left;">/ham/HamClock/maps/map-D-2640x1320-Clouds.bmp.z</td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
@@ -1549,10 +1868,10 @@ style="text-align: left;">/ham/HamClock/maps/map-D-2640x1320-Clouds.bmp.z</td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
-<td
-style="text-align: left;">/ham/HamClock/maps/map-D-2640x1320-Countries.bmp.z</td>
+<tr class="even">
+<td style="text-align: left;">/ham/HamClock/maps/map-D-2640x1320-Countries.bmp.z</td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
@@ -1561,10 +1880,10 @@ style="text-align: left;">/ham/HamClock/maps/map-D-2640x1320-Countries.bmp.z</td
 <td style="text-align: center;"></td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
-<td
-style="text-align: left;">/ham/HamClock/maps/map-D-2640x1320-DRAP-S.bmp.z</td>
+<tr class="odd">
+<td style="text-align: left;">/ham/HamClock/maps/map-D-2640x1320-DRAP-S.bmp.z</td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
@@ -1573,10 +1892,10 @@ style="text-align: left;">/ham/HamClock/maps/map-D-2640x1320-DRAP-S.bmp.z</td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
-<td
-style="text-align: left;">/ham/HamClock/maps/map-D-2640x1320-MUF-RT.bmp.z</td>
+<tr class="even">
+<td style="text-align: left;">/ham/HamClock/maps/map-D-2640x1320-MUF-RT.bmp.z</td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
@@ -1585,10 +1904,10 @@ style="text-align: left;">/ham/HamClock/maps/map-D-2640x1320-MUF-RT.bmp.z</td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
-<td
-style="text-align: left;">/ham/HamClock/maps/map-D-2640x1320-Terrain.bmp.z</td>
+<tr class="odd">
+<td style="text-align: left;">/ham/HamClock/maps/map-D-2640x1320-Terrain.bmp.z</td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
@@ -1597,10 +1916,10 @@ style="text-align: left;">/ham/HamClock/maps/map-D-2640x1320-Terrain.bmp.z</td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
-<td
-style="text-align: left;">/ham/HamClock/maps/map-D-3960x1980-Clouds.bmp.z</td>
+<tr class="even">
+<td style="text-align: left;">/ham/HamClock/maps/map-D-3960x1980-Clouds.bmp.z</td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
@@ -1609,10 +1928,10 @@ style="text-align: left;">/ham/HamClock/maps/map-D-3960x1980-Clouds.bmp.z</td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
-<td
-style="text-align: left;">/ham/HamClock/maps/map-D-3960x1980-Terrain.bmp.z</td>
+<tr class="odd">
+<td style="text-align: left;">/ham/HamClock/maps/map-D-3960x1980-Terrain.bmp.z</td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
@@ -1621,10 +1940,10 @@ style="text-align: left;">/ham/HamClock/maps/map-D-3960x1980-Terrain.bmp.z</td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
-<td
-style="text-align: left;">/ham/HamClock/maps/map-D-3960x1980-Wx-in.bmp.z</td>
+<tr class="even">
+<td style="text-align: left;">/ham/HamClock/maps/map-D-3960x1980-Wx-in.bmp.z</td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
@@ -1633,10 +1952,10 @@ style="text-align: left;">/ham/HamClock/maps/map-D-3960x1980-Wx-in.bmp.z</td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
-<td
-style="text-align: left;">/ham/HamClock/maps/map-D-5940x2970-Aurora.bmp.z</td>
+<tr class="odd">
+<td style="text-align: left;">/ham/HamClock/maps/map-D-5940x2970-Aurora.bmp.z</td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
@@ -1645,10 +1964,10 @@ style="text-align: left;">/ham/HamClock/maps/map-D-5940x2970-Aurora.bmp.z</td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
-<td
-style="text-align: left;">/ham/HamClock/maps/map-D-5940x2970-Countries.bmp.z</td>
+<tr class="even">
+<td style="text-align: left;">/ham/HamClock/maps/map-D-5940x2970-Countries.bmp.z</td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
@@ -1657,10 +1976,10 @@ style="text-align: left;">/ham/HamClock/maps/map-D-5940x2970-Countries.bmp.z</td
 <td style="text-align: center;"></td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
-<td
-style="text-align: left;">/ham/HamClock/maps/map-D-5940x2970-MUF-RT.bmp.z</td>
+<tr class="odd">
+<td style="text-align: left;">/ham/HamClock/maps/map-D-5940x2970-MUF-RT.bmp.z</td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
@@ -1669,10 +1988,10 @@ style="text-align: left;">/ham/HamClock/maps/map-D-5940x2970-MUF-RT.bmp.z</td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
-<td
-style="text-align: left;">/ham/HamClock/maps/map-D-5940x2970-Wx-mB.bmp.z</td>
+<tr class="even">
+<td style="text-align: left;">/ham/HamClock/maps/map-D-5940x2970-Wx-mB.bmp.z</td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
@@ -1681,10 +2000,10 @@ style="text-align: left;">/ham/HamClock/maps/map-D-5940x2970-Wx-mB.bmp.z</td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
-<td
-style="text-align: left;">/ham/HamClock/maps/map-D-660x330-Aurora.bmp.z</td>
+<tr class="odd">
+<td style="text-align: left;">/ham/HamClock/maps/map-D-660x330-Aurora.bmp.z</td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
@@ -1693,10 +2012,10 @@ style="text-align: left;">/ham/HamClock/maps/map-D-660x330-Aurora.bmp.z</td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
-<td
-style="text-align: left;">/ham/HamClock/maps/map-D-660x330-Clouds.bmp.z</td>
+<tr class="even">
+<td style="text-align: left;">/ham/HamClock/maps/map-D-660x330-Clouds.bmp.z</td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
@@ -1705,10 +2024,10 @@ style="text-align: left;">/ham/HamClock/maps/map-D-660x330-Clouds.bmp.z</td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
-<td
-style="text-align: left;">/ham/HamClock/maps/map-D-660x330-Countries.bmp.z</td>
+<tr class="odd">
+<td style="text-align: left;">/ham/HamClock/maps/map-D-660x330-Countries.bmp.z</td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
@@ -1717,10 +2036,10 @@ style="text-align: left;">/ham/HamClock/maps/map-D-660x330-Countries.bmp.z</td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
-<td
-style="text-align: left;">/ham/HamClock/maps/map-D-660x330-DRAP-S.bmp.z</td>
+<tr class="even">
+<td style="text-align: left;">/ham/HamClock/maps/map-D-660x330-DRAP-S.bmp.z</td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
@@ -1729,10 +2048,10 @@ style="text-align: left;">/ham/HamClock/maps/map-D-660x330-DRAP-S.bmp.z</td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
-<td
-style="text-align: left;">/ham/HamClock/maps/map-D-660x330-MUF-RT.bmp.z</td>
+<tr class="odd">
+<td style="text-align: left;">/ham/HamClock/maps/map-D-660x330-MUF-RT.bmp.z</td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
@@ -1741,10 +2060,10 @@ style="text-align: left;">/ham/HamClock/maps/map-D-660x330-MUF-RT.bmp.z</td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
-<td
-style="text-align: left;">/ham/HamClock/maps/map-D-660x330-Wx-in.bmp.z</td>
+<tr class="even">
+<td style="text-align: left;">/ham/HamClock/maps/map-D-660x330-Wx-in.bmp.z</td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
@@ -1753,10 +2072,10 @@ style="text-align: left;">/ham/HamClock/maps/map-D-660x330-Wx-in.bmp.z</td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
-<td
-style="text-align: left;">/ham/HamClock/maps/map-D-660x330-Wx-mB.bmp.z</td>
+<tr class="odd">
+<td style="text-align: left;">/ham/HamClock/maps/map-D-660x330-Wx-mB.bmp.z</td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
@@ -1765,10 +2084,10 @@ style="text-align: left;">/ham/HamClock/maps/map-D-660x330-Wx-mB.bmp.z</td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
-<td
-style="text-align: left;">/ham/HamClock/maps/map-N-1320x660-Aurora.bmp.z</td>
+<tr class="even">
+<td style="text-align: left;">/ham/HamClock/maps/map-N-1320x660-Aurora.bmp.z</td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
@@ -1777,10 +2096,10 @@ style="text-align: left;">/ham/HamClock/maps/map-N-1320x660-Aurora.bmp.z</td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
-<td
-style="text-align: left;">/ham/HamClock/maps/map-N-1320x660-Clouds.bmp.z</td>
+<tr class="odd">
+<td style="text-align: left;">/ham/HamClock/maps/map-N-1320x660-Clouds.bmp.z</td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
@@ -1789,10 +2108,10 @@ style="text-align: left;">/ham/HamClock/maps/map-N-1320x660-Clouds.bmp.z</td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
-<td
-style="text-align: left;">/ham/HamClock/maps/map-N-1320x660-Countries.bmp.z</td>
+<tr class="even">
+<td style="text-align: left;">/ham/HamClock/maps/map-N-1320x660-Countries.bmp.z</td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
@@ -1801,10 +2120,10 @@ style="text-align: left;">/ham/HamClock/maps/map-N-1320x660-Countries.bmp.z</td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
-<td
-style="text-align: left;">/ham/HamClock/maps/map-N-1320x660-DRAP-S.bmp.z</td>
+<tr class="odd">
+<td style="text-align: left;">/ham/HamClock/maps/map-N-1320x660-DRAP-S.bmp.z</td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
@@ -1813,10 +2132,10 @@ style="text-align: left;">/ham/HamClock/maps/map-N-1320x660-DRAP-S.bmp.z</td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
-<td
-style="text-align: left;">/ham/HamClock/maps/map-N-1320x660-MUF-RT.bmp.z</td>
+<tr class="even">
+<td style="text-align: left;">/ham/HamClock/maps/map-N-1320x660-MUF-RT.bmp.z</td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
@@ -1825,10 +2144,10 @@ style="text-align: left;">/ham/HamClock/maps/map-N-1320x660-MUF-RT.bmp.z</td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
-<td
-style="text-align: left;">/ham/HamClock/maps/map-N-1320x660-Terrain.bmp.z</td>
+<tr class="odd">
+<td style="text-align: left;">/ham/HamClock/maps/map-N-1320x660-Terrain.bmp.z</td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
@@ -1837,10 +2156,10 @@ style="text-align: left;">/ham/HamClock/maps/map-N-1320x660-Terrain.bmp.z</td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
-<td
-style="text-align: left;">/ham/HamClock/maps/map-N-1320x660-Wx-in.bmp.z</td>
+<tr class="even">
+<td style="text-align: left;">/ham/HamClock/maps/map-N-1320x660-Wx-in.bmp.z</td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
@@ -1849,10 +2168,10 @@ style="text-align: left;">/ham/HamClock/maps/map-N-1320x660-Wx-in.bmp.z</td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
-<td
-style="text-align: left;">/ham/HamClock/maps/map-N-1320x660-Wx-mB.bmp.z</td>
+<tr class="odd">
+<td style="text-align: left;">/ham/HamClock/maps/map-N-1320x660-Wx-mB.bmp.z</td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
@@ -1861,10 +2180,10 @@ style="text-align: left;">/ham/HamClock/maps/map-N-1320x660-Wx-mB.bmp.z</td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
-<td
-style="text-align: left;">/ham/HamClock/maps/map-N-1980x990-Aurora.bmp.z</td>
+<tr class="even">
+<td style="text-align: left;">/ham/HamClock/maps/map-N-1980x990-Aurora.bmp.z</td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
@@ -1873,10 +2192,10 @@ style="text-align: left;">/ham/HamClock/maps/map-N-1980x990-Aurora.bmp.z</td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
-<td
-style="text-align: left;">/ham/HamClock/maps/map-N-1980x990-Clouds.bmp.z</td>
+<tr class="odd">
+<td style="text-align: left;">/ham/HamClock/maps/map-N-1980x990-Clouds.bmp.z</td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
@@ -1885,10 +2204,10 @@ style="text-align: left;">/ham/HamClock/maps/map-N-1980x990-Clouds.bmp.z</td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
-<td
-style="text-align: left;">/ham/HamClock/maps/map-N-1980x990-Countries.bmp.z</td>
+<tr class="even">
+<td style="text-align: left;">/ham/HamClock/maps/map-N-1980x990-Countries.bmp.z</td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
@@ -1897,10 +2216,10 @@ style="text-align: left;">/ham/HamClock/maps/map-N-1980x990-Countries.bmp.z</td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
-<td
-style="text-align: left;">/ham/HamClock/maps/map-N-1980x990-DRAP-S.bmp.z</td>
+<tr class="odd">
+<td style="text-align: left;">/ham/HamClock/maps/map-N-1980x990-DRAP-S.bmp.z</td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
@@ -1909,10 +2228,10 @@ style="text-align: left;">/ham/HamClock/maps/map-N-1980x990-DRAP-S.bmp.z</td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
-<td
-style="text-align: left;">/ham/HamClock/maps/map-N-1980x990-MUF-RT.bmp.z</td>
+<tr class="even">
+<td style="text-align: left;">/ham/HamClock/maps/map-N-1980x990-MUF-RT.bmp.z</td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
@@ -1921,10 +2240,10 @@ style="text-align: left;">/ham/HamClock/maps/map-N-1980x990-MUF-RT.bmp.z</td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
-<td
-style="text-align: left;">/ham/HamClock/maps/map-N-1980x990-Terrain.bmp.z</td>
+<tr class="odd">
+<td style="text-align: left;">/ham/HamClock/maps/map-N-1980x990-Terrain.bmp.z</td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
@@ -1933,10 +2252,10 @@ style="text-align: left;">/ham/HamClock/maps/map-N-1980x990-Terrain.bmp.z</td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
-<td
-style="text-align: left;">/ham/HamClock/maps/map-N-1980x990-Wx-in.bmp.z</td>
+<tr class="even">
+<td style="text-align: left;">/ham/HamClock/maps/map-N-1980x990-Wx-in.bmp.z</td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
@@ -1945,10 +2264,10 @@ style="text-align: left;">/ham/HamClock/maps/map-N-1980x990-Wx-in.bmp.z</td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
-<td
-style="text-align: left;">/ham/HamClock/maps/map-N-1980x990-Wx-mB.bmp.z</td>
+<tr class="odd">
+<td style="text-align: left;">/ham/HamClock/maps/map-N-1980x990-Wx-mB.bmp.z</td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
@@ -1957,10 +2276,10 @@ style="text-align: left;">/ham/HamClock/maps/map-N-1980x990-Wx-mB.bmp.z</td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
-<td
-style="text-align: left;">/ham/HamClock/maps/map-N-2640x1320-Aurora.bmp.z</td>
+<tr class="even">
+<td style="text-align: left;">/ham/HamClock/maps/map-N-2640x1320-Aurora.bmp.z</td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
@@ -1969,10 +2288,10 @@ style="text-align: left;">/ham/HamClock/maps/map-N-2640x1320-Aurora.bmp.z</td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
-<td
-style="text-align: left;">/ham/HamClock/maps/map-N-2640x1320-Clouds.bmp.z</td>
+<tr class="odd">
+<td style="text-align: left;">/ham/HamClock/maps/map-N-2640x1320-Clouds.bmp.z</td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
@@ -1981,10 +2300,10 @@ style="text-align: left;">/ham/HamClock/maps/map-N-2640x1320-Clouds.bmp.z</td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
-<td
-style="text-align: left;">/ham/HamClock/maps/map-N-2640x1320-Countries.bmp.z</td>
+<tr class="even">
+<td style="text-align: left;">/ham/HamClock/maps/map-N-2640x1320-Countries.bmp.z</td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
@@ -1993,10 +2312,10 @@ style="text-align: left;">/ham/HamClock/maps/map-N-2640x1320-Countries.bmp.z</td
 <td style="text-align: center;"></td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
-<td
-style="text-align: left;">/ham/HamClock/maps/map-N-2640x1320-DRAP-S.bmp.z</td>
+<tr class="odd">
+<td style="text-align: left;">/ham/HamClock/maps/map-N-2640x1320-DRAP-S.bmp.z</td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
@@ -2005,10 +2324,10 @@ style="text-align: left;">/ham/HamClock/maps/map-N-2640x1320-DRAP-S.bmp.z</td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
-<td
-style="text-align: left;">/ham/HamClock/maps/map-N-2640x1320-MUF-RT.bmp.z</td>
+<tr class="even">
+<td style="text-align: left;">/ham/HamClock/maps/map-N-2640x1320-MUF-RT.bmp.z</td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
@@ -2017,10 +2336,10 @@ style="text-align: left;">/ham/HamClock/maps/map-N-2640x1320-MUF-RT.bmp.z</td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
-<td
-style="text-align: left;">/ham/HamClock/maps/map-N-2640x1320-Terrain.bmp.z</td>
+<tr class="odd">
+<td style="text-align: left;">/ham/HamClock/maps/map-N-2640x1320-Terrain.bmp.z</td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
@@ -2029,10 +2348,10 @@ style="text-align: left;">/ham/HamClock/maps/map-N-2640x1320-Terrain.bmp.z</td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
-<td
-style="text-align: left;">/ham/HamClock/maps/map-N-3960x1980-Clouds.bmp.z</td>
+<tr class="even">
+<td style="text-align: left;">/ham/HamClock/maps/map-N-3960x1980-Clouds.bmp.z</td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
@@ -2041,10 +2360,10 @@ style="text-align: left;">/ham/HamClock/maps/map-N-3960x1980-Clouds.bmp.z</td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
-<td
-style="text-align: left;">/ham/HamClock/maps/map-N-3960x1980-Terrain.bmp.z</td>
+<tr class="odd">
+<td style="text-align: left;">/ham/HamClock/maps/map-N-3960x1980-Terrain.bmp.z</td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
@@ -2053,10 +2372,10 @@ style="text-align: left;">/ham/HamClock/maps/map-N-3960x1980-Terrain.bmp.z</td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
-<td
-style="text-align: left;">/ham/HamClock/maps/map-N-3960x1980-Wx-in.bmp.z</td>
+<tr class="even">
+<td style="text-align: left;">/ham/HamClock/maps/map-N-3960x1980-Wx-in.bmp.z</td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
@@ -2065,10 +2384,10 @@ style="text-align: left;">/ham/HamClock/maps/map-N-3960x1980-Wx-in.bmp.z</td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
-<td
-style="text-align: left;">/ham/HamClock/maps/map-N-5940x2970-Aurora.bmp.z</td>
+<tr class="odd">
+<td style="text-align: left;">/ham/HamClock/maps/map-N-5940x2970-Aurora.bmp.z</td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
@@ -2077,10 +2396,10 @@ style="text-align: left;">/ham/HamClock/maps/map-N-5940x2970-Aurora.bmp.z</td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
-<td
-style="text-align: left;">/ham/HamClock/maps/map-N-5940x2970-Countries.bmp.z</td>
+<tr class="even">
+<td style="text-align: left;">/ham/HamClock/maps/map-N-5940x2970-Countries.bmp.z</td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
@@ -2089,10 +2408,10 @@ style="text-align: left;">/ham/HamClock/maps/map-N-5940x2970-Countries.bmp.z</td
 <td style="text-align: center;"></td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
-<td
-style="text-align: left;">/ham/HamClock/maps/map-N-5940x2970-MUF-RT.bmp.z</td>
+<tr class="odd">
+<td style="text-align: left;">/ham/HamClock/maps/map-N-5940x2970-MUF-RT.bmp.z</td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
@@ -2101,10 +2420,10 @@ style="text-align: left;">/ham/HamClock/maps/map-N-5940x2970-MUF-RT.bmp.z</td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
-<td
-style="text-align: left;">/ham/HamClock/maps/map-N-5940x2970-Wx-mB.bmp.z</td>
+<tr class="even">
+<td style="text-align: left;">/ham/HamClock/maps/map-N-5940x2970-Wx-mB.bmp.z</td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
@@ -2113,10 +2432,10 @@ style="text-align: left;">/ham/HamClock/maps/map-N-5940x2970-Wx-mB.bmp.z</td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
-<td
-style="text-align: left;">/ham/HamClock/maps/map-N-660x330-Aurora.bmp.z</td>
+<tr class="odd">
+<td style="text-align: left;">/ham/HamClock/maps/map-N-660x330-Aurora.bmp.z</td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
@@ -2125,10 +2444,10 @@ style="text-align: left;">/ham/HamClock/maps/map-N-660x330-Aurora.bmp.z</td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
-<td
-style="text-align: left;">/ham/HamClock/maps/map-N-660x330-Clouds.bmp.z</td>
+<tr class="even">
+<td style="text-align: left;">/ham/HamClock/maps/map-N-660x330-Clouds.bmp.z</td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
@@ -2137,10 +2456,10 @@ style="text-align: left;">/ham/HamClock/maps/map-N-660x330-Clouds.bmp.z</td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
-<td
-style="text-align: left;">/ham/HamClock/maps/map-N-660x330-Countries.bmp.z</td>
+<tr class="odd">
+<td style="text-align: left;">/ham/HamClock/maps/map-N-660x330-Countries.bmp.z</td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
@@ -2149,10 +2468,10 @@ style="text-align: left;">/ham/HamClock/maps/map-N-660x330-Countries.bmp.z</td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
-<td
-style="text-align: left;">/ham/HamClock/maps/map-N-660x330-DRAP-S.bmp.z</td>
+<tr class="even">
+<td style="text-align: left;">/ham/HamClock/maps/map-N-660x330-DRAP-S.bmp.z</td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
@@ -2161,10 +2480,10 @@ style="text-align: left;">/ham/HamClock/maps/map-N-660x330-DRAP-S.bmp.z</td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
-<td
-style="text-align: left;">/ham/HamClock/maps/map-N-660x330-MUF-RT.bmp.z</td>
+<tr class="odd">
+<td style="text-align: left;">/ham/HamClock/maps/map-N-660x330-MUF-RT.bmp.z</td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
@@ -2173,10 +2492,10 @@ style="text-align: left;">/ham/HamClock/maps/map-N-660x330-MUF-RT.bmp.z</td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
-<td
-style="text-align: left;">/ham/HamClock/maps/map-N-660x330-Wx-in.bmp.z</td>
+<tr class="even">
+<td style="text-align: left;">/ham/HamClock/maps/map-N-660x330-Wx-in.bmp.z</td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
@@ -2185,10 +2504,10 @@ style="text-align: left;">/ham/HamClock/maps/map-N-660x330-Wx-in.bmp.z</td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
-<td
-style="text-align: left;">/ham/HamClock/maps/map-N-660x330-Wx-mB.bmp.z</td>
+<tr class="odd">
+<td style="text-align: left;">/ham/HamClock/maps/map-N-660x330-Wx-mB.bmp.z</td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
@@ -2197,10 +2516,10 @@ style="text-align: left;">/ham/HamClock/maps/map-N-660x330-Wx-mB.bmp.z</td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
-<td
-style="text-align: left;">/ham/HamClock/solar-flux/solarflux-99.txt</td>
+<tr class="even">
+<td style="text-align: left;">/ham/HamClock/solar-flux/solarflux-99.txt</td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
@@ -2209,10 +2528,10 @@ style="text-align: left;">/ham/HamClock/solar-flux/solarflux-99.txt</td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
-<td
-style="text-align: left;">/ham/HamClock/solar-flux/solarflux-history.txt</td>
+<tr class="odd">
+<td style="text-align: left;">/ham/HamClock/solar-flux/solarflux-history.txt</td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
@@ -2221,10 +2540,10 @@ style="text-align: left;">/ham/HamClock/solar-flux/solarflux-history.txt</td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
-<td
-style="text-align: left;">/ham/HamClock/solar-wind/swind-24hr.txt</td>
+<tr class="even">
+<td style="text-align: left;">/ham/HamClock/solar-wind/swind-24hr.txt</td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
@@ -2233,8 +2552,9 @@ style="text-align: left;">/ham/HamClock/solar-wind/swind-24hr.txt</td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
+<tr class="odd">
 <td style="text-align: left;">/ham/HamClock/ssn/ssn-31.txt</td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
@@ -2244,8 +2564,9 @@ style="text-align: left;">/ham/HamClock/solar-wind/swind-24hr.txt</td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
+<tr class="even">
 <td style="text-align: left;">/ham/HamClock/ssn/ssn-history.txt</td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
@@ -2255,8 +2576,9 @@ style="text-align: left;">/ham/HamClock/solar-wind/swind-24hr.txt</td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
+<tr class="odd">
 <td style="text-align: left;">/ham/HamClock/version.pl</td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
@@ -2266,8 +2588,9 @@ style="text-align: left;">/ham/HamClock/solar-wind/swind-24hr.txt</td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
+<tr class="even">
 <td style="text-align: left;">/ham/HamClock/worldwx/wx.txt</td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
@@ -2277,8 +2600,9 @@ style="text-align: left;">/ham/HamClock/solar-wind/swind-24hr.txt</td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
+<tr class="odd">
 <td style="text-align: left;">/ham/HamClock/wx.pl</td>
 <td style="text-align: left;">is_de</td>
 <td style="text-align: center;"></td>
@@ -2288,8 +2612,9 @@ style="text-align: left;">/ham/HamClock/solar-wind/swind-24hr.txt</td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;">0, 1</td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
+<tr class="even">
 <td style="text-align: left;"></td>
 <td style="text-align: left;">lat</td>
 <td style="text-align: center;"></td>
@@ -2299,8 +2624,9 @@ style="text-align: left;">/ham/HamClock/solar-wind/swind-24hr.txt</td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;">41.246, 36.292, 37.6364, 29, 21.5468…</td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
+<tr class="odd">
 <td style="text-align: left;"></td>
 <td style="text-align: left;">lng</td>
 <td style="text-align: center;"></td>
@@ -2308,11 +2634,11 @@ style="text-align: left;">/ham/HamClock/solar-wind/swind-24hr.txt</td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
-<td style="text-align: left;">-96.9167, -84.167, -80.729, -106.5,
--84.5455…</td>
+<td style="text-align: left;">-96.9167, -84.167, -80.729, -106.5, -84.5455…</td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
+<tr class="even">
 <td style="text-align: left;">/ham/HamClock/xray/xray.txt</td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
@@ -2322,8 +2648,9 @@ style="text-align: left;">/ham/HamClock/solar-wind/swind-24hr.txt</td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
+<tr class="odd">
 <td style="text-align: left;">/ham/HamClock/lightning/strikes.pl</td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
@@ -2333,8 +2660,9 @@ style="text-align: left;">/ham/HamClock/solar-wind/swind-24hr.txt</td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;">003</td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
+<tr class="even">
 <td style="text-align: left;"></td>
 <td style="text-align: left;">lat</td>
 <td style="text-align: center;">DD.ddddd</td>
@@ -2344,8 +2672,9 @@ style="text-align: left;">/ham/HamClock/solar-wind/swind-24hr.txt</td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
+<tr class="odd">
 <td style="text-align: left;"></td>
 <td style="text-align: left;">lon</td>
 <td style="text-align: center;">DD.dddd</td>
@@ -2355,8 +2684,9 @@ style="text-align: left;">/ham/HamClock/solar-wind/swind-24hr.txt</td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
+<tr class="even">
 <td style="text-align: left;"></td>
 <td style="text-align: left;">radius</td>
 <td style="text-align: center;">km</td>
@@ -2366,8 +2696,9 @@ style="text-align: left;">/ham/HamClock/solar-wind/swind-24hr.txt</td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
-<tr>
+<tr class="odd">
 <td style="text-align: left;"></td>
 <td style="text-align: left;">maxage</td>
 <td style="text-align: center;">s</td>
@@ -2377,8 +2708,17 @@ style="text-align: left;">/ham/HamClock/solar-wind/swind-24hr.txt</td>
 <td style="text-align: center;"></td>
 <td style="text-align: left;"></td>
 <td style="text-align: center;"></td>
+<td class="valid-values-col"></td>
 </tr>
 </tbody>
 </table>
+<!-- ENUM DEFINITIONS — do not edit this block manually
+     enum:ModeEnum=3|13|17|19|22|38|49  required=yes  # Propagation mode: 3=WSPR 13=FT8 17=FT4 19=CW 22=RTTY 38=SSB 49=AM
+     enum:PathEnum=0|1  required=yes  # Path: 0=short 1=long
+     enum:MapHeightEnum=330|660|990|1320|1980|2640|2870|3960  required=yes  # HamClock map pixel height
+     enum:MapWidthEnum=660|1320|1980|2640|3960|5280|5940|7920  required=yes  # HamClock map pixel width
+     enum:AntControlEnum=0|1|2|3  # 0-none 1=DE 2=DX 3=both
+     enum:AntIndexEnum=0|256|257|258|259|260|261|262|263|264|265|266|267|268|269|270|271|272|273|274|275|276|277|278|279|280|281|282|529|768|1024|1025|1026|1027|1028|1029|1030|1031|1032|1033|1034|1035|1036|1037|1038|1039|1045|1046|1047|1048|1049|1050|1051|1052|1053|1054|1055|1056|1058|1059|1060|061|1062|1063|1065|1067|1068|1069|1070|1071|1072|1114|1123|1294  # Antenna Index
+-->
 </body>
 </html>
