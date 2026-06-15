@@ -1,8 +1,8 @@
-openapi: 3.1.0
+openapi: 3.0.3
 info:
   title: HamClock API
-  description: "API endpoints for HamClock \u2014 a real-time amateur radio clock\
-    \ and propagation display application."
+  description: API endpoints for HamClock — a real-time amateur radio clock and propagation
+    display application.
   version: 1.0.0
   license:
     name: CC BY-ND 4.0
@@ -548,61 +548,75 @@ paths:
       summary: fetchBandConditions.pl
       description: Standard HamClock API endpoint.
       parameters:
-      - name: MODE
-        in: query
-        schema:
-          type: number
-        required: false
+      - $ref: '#/components/parameters/ModeEnum_MODE'
       - name: MONTH
         in: query
+        required: false
         schema:
           type: number
-        required: false
-      - name: PATH
-        in: query
-        schema:
-          type: number
-        required: false
+      - $ref: '#/components/parameters/PathEnum_PATH'
       - name: POW
         in: query
+        required: false
         schema:
           type: number
-        required: false
       - name: RXLAT
         in: query
+        required: false
         schema:
           type: number
-        required: false
       - name: RXLNG
         in: query
+        required: false
         schema:
           type: number
-        required: false
       - name: TOA
         in: query
+        required: false
         schema:
           type: number
-        required: false
+          minimum: 0.1
+          maximum: 30.0
+        description: 'Units: degrees'
       - name: TXLAT
         in: query
+        required: false
         schema:
           type: number
-        required: false
       - name: TXLNG
         in: query
+        required: false
         schema:
           type: number
-        required: false
       - name: UTC
         in: query
+        required: false
         schema:
           type: number
-        required: false
       - name: YEAR
         in: query
+        required: false
         schema:
           type: number
+      - $ref: '#/components/parameters/AntControlEnum_ANTDEDXCONTROL'
+      - $ref: '#/components/parameters/AntIndexEnum_ANTDEINDEX'
+      - $ref: '#/components/parameters/AntIndexEnum_ANTDXINDEX'
+      - name: ANTDEAZ
+        in: query
         required: false
+        schema:
+          type: number
+          minimum: 0.0
+          maximum: 359.9
+        description: 'Units: degrees'
+      - name: ANTDXAZ
+        in: query
+        required: false
+        schema:
+          type: number
+          minimum: 0.0
+          maximum: 359.9
+        description: 'Units: degrees'
       responses:
         '200':
           description: Success
@@ -619,29 +633,29 @@ paths:
       parameters:
       - name: bycall
         in: query
+        required: false
         schema:
           type: string
-        required: false
       - name: bygrid
         in: query
+        required: false
         schema:
           type: string
-        required: false
       - name: maxage
         in: query
+        required: false
         schema:
           type: number
-        required: false
       - name: ofcall
         in: query
+        required: false
         schema:
           type: string
-        required: false
       - name: ofgrid
         in: query
+        required: false
         schema:
           type: string
-        required: false
       responses:
         '200':
           description: Success
@@ -658,29 +672,30 @@ paths:
       parameters:
       - name: maxage
         in: query
+        required: true
         schema:
           type: number
-        required: true
+        description: 'Units: secs'
       - name: ofcall
         in: query
+        required: false
         schema:
           type: string
-        required: false
       - name: bycall
         in: query
+        required: false
         schema:
           type: string
-        required: false
       - name: bygrid
         in: query
+        required: false
         schema:
           type: string
-        required: false
       - name: ofgrid
         in: query
+        required: false
         schema:
           type: string
-        required: false
       responses:
         '200':
           description: Success
@@ -697,64 +712,120 @@ paths:
       parameters:
       - name: HEIGHT
         in: query
+        required: true
+        description: HamClock map pixel height
         schema:
           type: number
-        required: false
+          enum:
+          - 330
+          - 660
+          - 990
+          - 1320
+          - 1980
+          - 2640
+          - 2870
+          - 3960
       - name: MHZ
         in: query
+        required: false
         schema:
           type: number
-        required: false
       - name: MODE
         in: query
+        required: true
+        description: 'Propagation mode: 3=WSPR 13=FT8 17=FT4 19=CW 22=RTTY 38=SSB
+          49=AM'
         schema:
           type: number
-        required: false
+          enum:
+          - 3
+          - 13
+          - 17
+          - 19
+          - 22
+          - 38
+          - 49
       - name: MONTH
         in: query
+        required: true
         schema:
           type: number
-        required: false
       - name: PATH
         in: query
+        required: true
+        description: 'Path: 0=short 1=long'
         schema:
           type: number
-        required: false
+          enum:
+          - 0
+          - 1
       - name: TOA
         in: query
+        required: true
         schema:
           type: number
-        required: false
+          minimum: 0.1
+          maximum: 30.0
+        description: 'Units: degrees'
       - name: TXLAT
         in: query
+        required: true
         schema:
           type: number
-        required: false
       - name: TXLNG
         in: query
+        required: true
         schema:
           type: number
-        required: false
       - name: UTC
         in: query
+        required: true
         schema:
           type: number
-        required: false
       - name: WATTS
         in: query
+        required: true
         schema:
           type: number
-        required: false
       - name: WIDTH
         in: query
+        required: true
+        description: HamClock map pixel width
         schema:
           type: number
-        required: false
+          enum:
+          - 660
+          - 1320
+          - 1980
+          - 2640
+          - 3960
+          - 5280
+          - 5940
+          - 7920
       - name: YEAR
         in: query
+        required: true
         schema:
           type: number
+      - $ref: '#/components/parameters/AntControlEnum_ANTDEDXCONTROL'
+      - $ref: '#/components/parameters/AntIndexEnum_ANTDEINDEX'
+      - $ref: '#/components/parameters/AntIndexEnum_ANTDXINDEX'
+      - name: ANTDEAZ
+        in: query
         required: false
+        schema:
+          type: number
+          minimum: 0.0
+          maximum: 359.9
+        description: 'Units: degrees'
+      - name: ANTDXAZ
+        in: query
+        required: false
+        schema:
+          type: number
+          minimum: 0.0
+          maximum: 359.9
+        description: 'Units: degrees'
       responses:
         '200':
           description: Success
@@ -769,66 +840,72 @@ paths:
       summary: fetchVOACAP-TOA.pl
       description: Standard HamClock API endpoint.
       parameters:
-      - name: HEIGHT
-        in: query
-        schema:
-          type: number
-        required: false
+      - $ref: '#/components/parameters/MapHeightEnum_HEIGHT'
       - name: MHZ
         in: query
+        required: false
         schema:
           type: number
-        required: false
-      - name: MODE
-        in: query
-        schema:
-          type: number
-        required: false
+      - $ref: '#/components/parameters/ModeEnum_MODE'
       - name: MONTH
         in: query
+        required: false
         schema:
           type: number
-        required: false
-      - name: PATH
-        in: query
-        schema:
-          type: number
-        required: false
+      - $ref: '#/components/parameters/PathEnum_PATH'
       - name: TOA
         in: query
+        required: false
         schema:
           type: number
-        required: false
+          minimum: 0.1
+          maximum: 30.0
+        description: 'Units: degrees'
       - name: TXLAT
         in: query
+        required: false
         schema:
           type: number
-        required: false
       - name: TXLNG
         in: query
+        required: false
         schema:
           type: number
-        required: false
       - name: UTC
         in: query
+        required: false
         schema:
           type: number
-        required: false
       - name: WATTS
         in: query
+        required: false
         schema:
           type: number
-        required: false
-      - name: WIDTH
-        in: query
-        schema:
-          type: number
-        required: false
+      - $ref: '#/components/parameters/MapWidthEnum_WIDTH'
       - name: YEAR
         in: query
+        required: false
         schema:
           type: number
+      - $ref: '#/components/parameters/AntControlEnum_ANTDEDXCONTROL'
+      - $ref: '#/components/parameters/AntIndexEnum_ANTDEINDEX'
+      - $ref: '#/components/parameters/AntIndexEnum_ANTDXINDEX'
+      - name: ANTDEAZ
+        in: query
         required: false
+        schema:
+          type: number
+          minimum: 0.0
+          maximum: 359.9
+        description: 'Units: degrees'
+      - name: ANTDXAZ
+        in: query
+        required: false
+        schema:
+          type: number
+          minimum: 0.0
+          maximum: 359.9
+        description: 'Units: degrees'
       responses:
         '200':
           description: Success
@@ -843,66 +920,72 @@ paths:
       summary: fetchVOACAPArea.pl
       description: Standard HamClock API endpoint.
       parameters:
-      - name: HEIGHT
-        in: query
-        schema:
-          type: number
-        required: false
+      - $ref: '#/components/parameters/MapHeightEnum_HEIGHT'
       - name: MHZ
         in: query
+        required: false
         schema:
           type: number
-        required: false
-      - name: MODE
-        in: query
-        schema:
-          type: number
-        required: false
+      - $ref: '#/components/parameters/ModeEnum_MODE'
       - name: MONTH
         in: query
+        required: false
         schema:
           type: number
-        required: false
-      - name: PATH
-        in: query
-        schema:
-          type: number
-        required: false
+      - $ref: '#/components/parameters/PathEnum_PATH'
       - name: TOA
         in: query
+        required: false
         schema:
           type: number
-        required: false
+          minimum: 0.1
+          maximum: 30.0
+        description: 'Units: degrees'
       - name: TXLAT
         in: query
+        required: false
         schema:
           type: number
-        required: false
       - name: TXLNG
         in: query
+        required: false
         schema:
           type: number
-        required: false
       - name: UTC
         in: query
+        required: false
         schema:
           type: number
-        required: false
       - name: WATTS
         in: query
+        required: false
         schema:
           type: number
-        required: false
-      - name: WIDTH
-        in: query
-        schema:
-          type: number
-        required: false
+      - $ref: '#/components/parameters/MapWidthEnum_WIDTH'
       - name: YEAR
         in: query
+        required: false
         schema:
           type: number
+      - $ref: '#/components/parameters/AntControlEnum_ANTDEDXCONTROL'
+      - $ref: '#/components/parameters/AntIndexEnum_ANTDEINDEX'
+      - $ref: '#/components/parameters/AntIndexEnum_ANTDXINDEX'
+      - name: ANTDEAZ
+        in: query
         required: false
+        schema:
+          type: number
+          minimum: 0.0
+          maximum: 359.9
+        description: 'Units: degrees'
+      - name: ANTDXAZ
+        in: query
+        required: false
+        schema:
+          type: number
+          minimum: 0.0
+          maximum: 359.9
+        description: 'Units: degrees'
       responses:
         '200':
           description: Success
@@ -919,29 +1002,29 @@ paths:
       parameters:
       - name: bycall
         in: query
+        required: false
         schema:
           type: string
-        required: false
       - name: bygrid
         in: query
+        required: false
         schema:
           type: string
-        required: false
       - name: maxage
         in: query
+        required: false
         schema:
           type: number
-        required: false
       - name: ofcall
         in: query
+        required: false
         schema:
           type: string
-        required: false
       - name: ofgrid
         in: query
+        required: false
         schema:
           type: string
-        required: false
       responses:
         '200':
           description: Success
@@ -2078,19 +2161,19 @@ paths:
       parameters:
       - name: is_de
         in: query
+        required: false
         schema:
           type: number
-        required: false
       - name: lat
         in: query
+        required: false
         schema:
           type: number
-        required: false
       - name: lng
         in: query
+        required: false
         schema:
           type: number
-        required: false
       responses:
         '200':
           description: Success
@@ -2121,28 +2204,36 @@ paths:
       parameters:
       - name: lat
         in: query
-        schema:
-          type: string
-          default: undef
         required: false
+        schema:
+          type: number
+          minimum: -90
+          maximum: 90
+        description: 'Units: DD.ddddd'
       - name: lon
         in: query
-        schema:
-          type: string
-          default: undef
         required: false
+        schema:
+          type: number
+          minimum: -180
+          maximum: 180
+        description: 'Units: DD.dddd'
       - name: radius
         in: query
-        schema:
-          type: string
-          default: undef
         required: false
+        schema:
+          type: number
+          minimum: 0
+          maximum: 41000
+        description: 'Units: km'
       - name: maxage
         in: query
-        schema:
-          type: string
-          default: '600'
         required: false
+        schema:
+          type: number
+          default: 600
+          minimum: 0
+        description: 'Units: s'
       responses:
         '200':
           description: Success
@@ -2150,3 +2241,238 @@ paths:
             text/plain:
               schema:
                 type: string
+components:
+  parameters:
+    ModeEnum_MODE:
+      name: MODE
+      in: query
+      description: 'Propagation mode: 3=WSPR 13=FT8 17=FT4 19=CW 22=RTTY 38=SSB 49=AM'
+      required: true
+      schema:
+        type: number
+        enum:
+        - 3
+        - 13
+        - 17
+        - 19
+        - 22
+        - 38
+        - 49
+    PathEnum_PATH:
+      name: PATH
+      in: query
+      description: 'Path: 0=short 1=long'
+      required: true
+      schema:
+        type: number
+        enum:
+        - 0
+        - 1
+    AntControlEnum_ANTDEDXCONTROL:
+      name: ANTDEDXCONTROL
+      in: query
+      description: 0-none 1=DE 2=DX 3=both
+      required: false
+      schema:
+        type: number
+        enum:
+        - 0
+        - 1
+        - 2
+        - 3
+    AntIndexEnum_ANTDEINDEX:
+      name: ANTDEINDEX
+      in: query
+      description: Antenna Index
+      required: false
+      schema:
+        type: number
+        enum:
+        - 0
+        - 256
+        - 257
+        - 258
+        - 259
+        - 260
+        - 261
+        - 262
+        - 263
+        - 264
+        - 265
+        - 266
+        - 267
+        - 268
+        - 269
+        - 270
+        - 271
+        - 272
+        - 273
+        - 274
+        - 275
+        - 276
+        - 277
+        - 278
+        - 279
+        - 280
+        - 281
+        - 282
+        - 529
+        - 768
+        - 1024
+        - 1025
+        - 1026
+        - 1027
+        - 1028
+        - 1029
+        - 1030
+        - 1031
+        - 1032
+        - 1033
+        - 1034
+        - 1035
+        - 1036
+        - 1037
+        - 1038
+        - 1039
+        - 1045
+        - 1046
+        - 1047
+        - 1048
+        - 1049
+        - 1050
+        - 1051
+        - 1052
+        - 1053
+        - 1054
+        - 1055
+        - 1056
+        - 1058
+        - 1059
+        - 1060
+        - 61
+        - 1062
+        - 1063
+        - 1065
+        - 1067
+        - 1068
+        - 1069
+        - 1070
+        - 1071
+        - 1072
+        - 1114
+        - 1123
+        - 1294
+    AntIndexEnum_ANTDXINDEX:
+      name: ANTDXINDEX
+      in: query
+      description: Antenna Index
+      required: false
+      schema:
+        type: number
+        enum:
+        - 0
+        - 256
+        - 257
+        - 258
+        - 259
+        - 260
+        - 261
+        - 262
+        - 263
+        - 264
+        - 265
+        - 266
+        - 267
+        - 268
+        - 269
+        - 270
+        - 271
+        - 272
+        - 273
+        - 274
+        - 275
+        - 276
+        - 277
+        - 278
+        - 279
+        - 280
+        - 281
+        - 282
+        - 529
+        - 768
+        - 1024
+        - 1025
+        - 1026
+        - 1027
+        - 1028
+        - 1029
+        - 1030
+        - 1031
+        - 1032
+        - 1033
+        - 1034
+        - 1035
+        - 1036
+        - 1037
+        - 1038
+        - 1039
+        - 1045
+        - 1046
+        - 1047
+        - 1048
+        - 1049
+        - 1050
+        - 1051
+        - 1052
+        - 1053
+        - 1054
+        - 1055
+        - 1056
+        - 1058
+        - 1059
+        - 1060
+        - 61
+        - 1062
+        - 1063
+        - 1065
+        - 1067
+        - 1068
+        - 1069
+        - 1070
+        - 1071
+        - 1072
+        - 1114
+        - 1123
+        - 1294
+    MapHeightEnum_HEIGHT:
+      name: HEIGHT
+      in: query
+      description: HamClock map pixel height
+      required: true
+      schema:
+        type: number
+        enum:
+        - 330
+        - 660
+        - 990
+        - 1320
+        - 1980
+        - 2640
+        - 2870
+        - 3960
+    MapWidthEnum_WIDTH:
+      name: WIDTH
+      in: query
+      description: HamClock map pixel width
+      required: true
+      schema:
+        type: number
+        enum:
+        - 660
+        - 1320
+        - 1980
+        - 2640
+        - 3960
+        - 5280
+        - 5940
+        - 7920

@@ -7,13 +7,76 @@ table tr:nth-child(even) {
     background-color: #f2f2f2;
 }
 table {
-    width: 100%;            /* Forces the table to span the full container width */
-    display: table;        /* Keeps standard table behavior */
+    width: 100%;
+    display: table;
     border-collapse: collapse;
 }
 
 /* Handles overflow if the table is too wide for the screen */
 div.table-wrapper {
-    overflow-x: auto;      /* Adds a horizontal scrollbar if needed */
+    overflow-x: auto;
     width: 100%;
+}
+
+/* ── Enum definitions section ── */
+.enum-section {
+    margin: 1.5em 0 2em 0;
+    padding: 1em 1.2em;
+    background: #f8f9fa;
+    border-left: 4px solid #1a5276;
+    border-radius: 3px;
+}
+.enum-section h2 {
+    margin-top: 0;
+    font-size: 1.1rem;
+    color: #1a5276;
+    letter-spacing: 0.04em;
+}
+.enum-block { margin: 0.8em 0 0 0; }
+.enum-block + .enum-block {
+    margin-top: 1.2em;
+    padding-top: 1em;
+    border-top: 1px solid #dde;
+}
+.enum-name {
+    font-family: monospace;
+    font-size: 0.95rem;
+    font-weight: bold;
+    color: #1a5276;
+}
+.enum-desc { font-size: 0.85rem; color: #555; margin: 0.15em 0 0.4em 0; }
+.enum-values { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 0.3em; }
+.enum-value {
+    display: inline-block;
+    font-family: monospace;
+    font-size: 0.82rem;
+    background: #e8f0fe;
+    border: 1px solid #b3c6e7;
+    border-radius: 3px;
+    padding: 2px 8px;
+    color: #1a3a6b;
+}
+
+/* ── valid values column ── */
+th.valid-values-col {
+    text-align: center;
+    white-space: nowrap;
+}
+td.valid-values-col {
+    text-align: center;
+    white-space: nowrap;
+}
+td.valid-values-col a.enum-link {
+    font-family: monospace;
+    font-size: 0.78rem;
+    color: #1a5276;
+    background: #e8f0fe;
+    border: 1px solid #b3c6e7;
+    border-radius: 3px;
+    padding: 2px 7px;
+    text-decoration: none;
+}
+td.valid-values-col a.enum-link:hover {
+    background: #cddcf7;
+    border-color: #1a5276;
 }
