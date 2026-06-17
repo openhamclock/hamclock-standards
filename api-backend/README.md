@@ -4,13 +4,13 @@ This is a document of HamClock's calls to the Backend. The calls are GET method 
 
 ## Workflow
 
-- **api-doc.md** is the central reference for API documentation. Make all new API changes here.
+- **api-doc.csv** is the central reference for API documentation. Make all new API changes here.
+- Run `python3 csv-to-md.py` to generate .md file for input to other tools
 - Run `python3 md-to-doc.py api-doc.md > api-doc.txt` to generate the plain text table [api-doc.txt](api-doc.txt).
 - Run `python3 md-to-openapi.py api-doc.md hamclock-openapi.yaml` to generate the OpenAPI specification [hamclock-openapi.yaml](hamclock-openapi.yaml).
-- Run `python3 generate_docs.py` to generate the interactive HTML documentation [hamclock-api-docs.html](hamclock-api-docs.html).
-- Run `pandoc api-doc.md -o api-doc.html` to convert MarkDown (MD) to HTML
+- Generation of HTML documentation is done within `update-generated-docs.sh` as described below
 
-Alternatively, run:
+To do all of the above plus generate HTML documentation, run:
 
 ```./update-generated-docs.sh```
 
